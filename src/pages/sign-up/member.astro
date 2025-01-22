@@ -1,0 +1,19 @@
+---
+import MemberSignUp from "../../components/MemberSignUp.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { actions } from "astro:actions"
+
+const result = Astro.getActionResult(actions.member.addMember);
+if (result && !result.error) {
+  Astro.cookies.set('_email', result.data[0].email, {maxAge: 3600, path: '/'});
+  return Astro.redirect('/sign-up/update');
+}
+else{
+    console.log(result?.error)
+}
+---
+
+<Layout>
+    <MemberSignUp/>
+</Layout>

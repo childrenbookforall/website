@@ -1,0 +1,17 @@
+---
+import UpdateMemberForm from "../../components/UpdateMemberForm.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { actions } from "astro:actions"
+const result = Astro.getActionResult(actions.member.updateMember);
+if (result && !result.error) {
+  return Astro.redirect('/sign-up/thanks');
+}
+else{
+    console.log(result?.error)
+}
+---
+
+<Layout>
+    <UpdateMemberForm/>
+</Layout>

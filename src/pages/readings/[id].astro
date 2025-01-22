@@ -1,0 +1,130 @@
+---
+import { db, Readings, eq } from "astro:db";
+import Layout from "../../layouts/Layout.astro";
+import ReadingInfo from "../../components/ReadingInfo.astro";
+import ConfirmParticipation from "../../components/ConfirmParticipation.astro";
+import { actions } from "astro:actions";
+
+const { id } = Astro.params;
+const readingId = Number(id);
+if(! Number.isInteger(readingId)){
+    return Astro.redirect("404");
+}
+const reading = await db
+    .select()
+    .from(Readings)
+    .where(eq(Readings.id, readingId));
+
+if (reading.length === 0) {
+    return Astro.redirect("404");
+}
+
+const {
+    date,
+    startTime,
+    endTime,
+    location,
+    bookCover,
+    description,
+    calendar,
+    facilitators,
+} = reading[0];
+
+Astro.cookies.set("_calendar", calendar, {maxAge: 3600, path:'/'});
+
+const displayFormattedDate = function (readingDate: Date) {
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+    const date = readingDate.getDate().toString();
+    const month = months[readingDate.getMonth()];
+    const year = readingDate.getFullYear().toString();
+
+    return date.concat(" ", month, " ", year);
+};
+
+const formatTime = function (time: number) {
+    const hour_24 = Math.floor(time / 60);
+    var minutes = time % 60;
+    const prefix = hour_24 > 12 ? "pm" : "am";
+    const hour_12 = hour_24 > 12 ? hour_24 - 12 : hour_24;
+    const hour_in_string = hour_12.toString();
+    const minutes_in_string =
+        minutes < 10 ? "0" + minutes.toString() : minutes.toString();
+    return hour_in_string.concat(":", minutes_in_string, " ", prefix);
+};
+
+const displayFormattedTimings = function (startTime: number, endTime: number) {
+    return formatTime(startTime).concat(" - ", formatTime(endTime));
+};
+
+const result = Astro.getActionResult(actions.reading.addConfirmation);
+if (result && !result.error) {
+    return Astro.redirect("/readings/contribute");
+}
+else{
+    console.log(result?.error);
+}
+---
+
+<Layout>
+    <ReadingInfo
+        date={displayFormattedDate(date)}
+        time={displayFormattedTimings(startTime, endTime)}
+        bookCover={bookCover}
+        location={location}
+        description={description}
+        facilitators={facilitators}
+    />
+    <ConfirmParticipation readingDate={date} />
+</Layout>
+<style>
+    .hidden-label {
+        display: none;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #description {
+        padding: 0 1.5rem;
+    }
+    hr {
+        max-width: 650px;
+        margin: auto;
+    }
+    @media only screen and (min-width: 480px) {
+        section {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 5%;
+            max-width: 600px;
+            margin: auto;
+        }
+        #book-cover {
+            order: 1;
+        }
+        #reading-info {
+            order: 2;
+        }
+        #description {
+            order: 3;
+        }
+        #facilitators {
+            order: 4;
+        }
+    }
+</style>

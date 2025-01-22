@@ -1,0 +1,69 @@
+---
+const {date, time, location, bookCover, description, facilitators} = Astro.props;
+---
+
+<section>
+    <div id="reading-info">
+        <h2 class="hidden-label">Date and Time</h2>
+        <p>{date}</p>
+        <p>{time}</p>
+        <h3 class="hidden-label">Location</h3>
+        <p>{location}</p>
+    </div>
+    <div id="book-cover">
+        <img
+            width="250"
+            src={bookCover}
+            alt="book cover"
+        />
+    </div>
+    <p id="description">
+        {description}
+    </p>
+    <div id="facilitators">
+        <h4 class="hidden-label">Facilitators</h4>
+        {facilitators.map((facilitator: any)=>(
+            <span>{facilitator.name}</span>
+        ))}
+    </div>
+</section>
+<hr />
+<style>
+    .hidden-label {
+        display: none;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #description{
+        padding: 0 1.5rem;
+    }
+    hr {
+        max-width: 650px;
+        margin: auto;
+    }
+    @media only screen and (min-width: 480px) {
+        section {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 5%;
+            max-width: 600px;
+            margin: auto;
+        }
+        #book-cover{
+            order: 1;
+        }
+        #reading-info{
+            order: 2;
+        }
+        #description{
+            order: 3;
+        }
+        #facilitators{
+            order: 4;
+        }
+    }
+</style>

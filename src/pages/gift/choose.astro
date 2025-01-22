@@ -1,0 +1,21 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ChooseOption from "../../components/ChooseOption.astro";
+import { actions } from "astro:actions"
+
+const result = Astro.getActionResult(actions.gift.chooseOption);
+if (result && !result.error) {
+  Astro.cookies.set('_receiver', result.data.receiver, {maxAge: 3600, path: '/'});
+  if(result.data.receiver === 'cba')
+    return Astro.redirect('/gift/cba');
+  else
+    return Astro.redirect('/gift/theme');
+}
+else{
+    console.log(result?.error)
+}
+---
+
+<Layout>
+    <ChooseOption/>
+</Layout>

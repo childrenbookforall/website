@@ -1,0 +1,60 @@
+---
+import { actions, isInputError, isActionError } from "astro:actions";
+
+const result = Astro.getActionResult(actions.gift.toSelf);
+const inputErrors = isInputError(result?.error)? result?.error.fields:{};
+const actionError = isActionError(result?.error);
+
+const theme = Astro.cookies.get('_theme')?.value;
+const surpriseTheme = Astro.cookies.get('_surpriseTheme')?.value;
+const budget = Astro.cookies.get('_budget')?.value;
+---
+{actionError && <span id="error">Something went wrong. Please try again</span>}
+<form method="POST" action={actions.gift.toSelf}>
+    <h1>Sign Up for Secret Santa</h1>
+    <label for="name">Name</label>
+    <input transition:persist required type="text" name="name" id="name" />
+    {inputErrors.name && <span id="error">Please check your name again</span>}
+    <label for="email">Email</label>
+    <input transition:persist required type="email" name="email" id="email" />
+    {inputErrors.email && <span id="error">Please check your email again</span>}
+    <label for="phone">Phone</label>
+    <input transition:persist required type="tel" name="phone" id="phone" />
+    {inputErrors.phone && <span id="error">Please check your phone number again</span>}
+    <label for="address1">Address 1</label>
+    <input transition:persist required type="text" name="address1" id="address1" />
+    {inputErrors.address1 && <span id="error">Please check your address again</span>}
+    <label for="address2">Address 2</label>
+    <input transition:persist required type="text" name="address2" id="address2" />
+    {inputErrors.address2 && <span id="error">Please check your address again</span>}
+    <label for="city">City</label>
+    <input transition:persist required type="text" name="city" id="city" />
+    {inputErrors.city && <span id="error">Please check your city again</span>}
+    <label for="state">State</label>
+    <input transition:persist required type="text" name="state" id="state" />
+    {inputErrors.state && <span id="error">Please check your state again</span>}
+    <label for="address1">Pincode</label>
+    <input transition:persist required type="number" name="pincode" id="pincode" />
+    {inputErrors.pincode && <span id="error">Please check your pincode again</span>}
+    <label for="message">Enter a message for yourself</label>
+    <textarea name="message" id="message">Enter a message for yourself</textarea>
+    <input type="hidden" name="theme" value={theme}>
+    <input type="hidden" name="surpriseTheme" value={surpriseTheme}>
+    <input type="hidden" name="budget" value={budget}>
+    <input type="submit" id="submit" value="Send me a book" />
+</form>
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: auto;
+        padding: 0rem 1.5rem 1.5rem 2rem;
+        gap: 0.5rem;
+    }
+    #error{
+        color: red;
+        display: block;
+        text-align: center;
+    }
+</style>

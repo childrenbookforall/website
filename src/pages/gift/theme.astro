@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ChooseThemeAndBudget from "../../components/ChooseThemeAndBudget.astro";
+import { actions } from "astro:actions"
+
+const result = Astro.getActionResult(actions.gift.chooseTheme);
+if (result && !result.error) {
+  Astro.cookies.set('_theme', result.data.theme, {maxAge: 3600, path: '/'});
+  Astro.cookies.set('_budget', result.data.budget, {maxAge: 3600, path: '/'});
+  Astro.cookies.set('_surpriseTheme', result.data.surpriseTheme.toString(), {maxAge: 3600, path: '/'});
+  
+  const receiver = Astro.cookies.get('_receiver')?.value;
+  return Astro.redirect(`/gift/${receiver}`);
+}
+else{
+    console.log(result?.error)
+}
+---
+
+<Layout>
+    <ChooseThemeAndBudget/>
+</Layout>
