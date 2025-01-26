@@ -1,0 +1,31 @@
+---
+const {name, profile_image, profile_link} = Astro.props;
+---
+<a href={profile_link}>
+    <span>
+        <img width=30 src={profile_image} alt="Profile image of the facilitator">
+        <span>{name}</span>
+    </span>
+</a>
+<style>
+    a{
+        text-decoration: none;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 2rem;
+        color: black;
+    }
+    a:hover{
+        background-color: lightgray;
+        filter: none;
+    }
+
+    span{
+        display: flex;
+        gap: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+    img{
+        border-radius: 50%;
+    }
+</style>

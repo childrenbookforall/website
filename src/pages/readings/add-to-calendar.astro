@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 
 const calendar = Astro.cookies.get("_calendar")?.value;
 
@@ -13,19 +14,25 @@ const calendar_link = calendar.toString();
 ---
 
 <Layout>
-    <div class="container">
-        <h2>Thank you 🌻</h2>
-        <p>
-            We hope to see you soon!<br>
-            You can save the reading event to your calendar by clicking on the link below.
-        </p>
-        <a
+    <section>
+        <aside>
+            <h2>Thank you 🌻</h2>
+            <p>We hope to see you soon! <br>
+                You can save the reading event to your calendar by clicking on the link below.
+            </p>
+            <a 
             target="_blank"
-            href={calendar_link}
-        >
-            Add to Calendar
-        </a>
-    </div>
+            href={calendar_link}>
+                <b>  
+                    <Icon name="fluent-color:calendar-16" size={20} is:inline />
+                    Add to Calendar</b>
+            </a>
+        </aside>
+    </section>
+    <section>
+        <a href="/" data-astro-reload>Back Home</a>
+    </section>
+    
 </Layout>
 <style>
     h2{
@@ -39,4 +46,12 @@ const calendar_link = calendar.toString();
     .container p{
 
     }
+    a{
+        display: flex;
+        justify-content: center;
+    }
+    a>b{
+        padding: 0.5rem 1rem;
+    }
+    
 </style>

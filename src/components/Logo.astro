@@ -1,0 +1,30 @@
+---
+import "@fontsource-variable/gluten";
+---
+<div id="logo">
+    <img width="120" src="/logo.png" alt="Children's Book For All logo" />
+    <div id="name">
+        <span>Children's</span>
+        <span>Book</span>
+        <span>For All</span>
+    </div>
+</div>
+
+<style>
+    #logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem
+    }
+    #name {
+        display: flex;
+        flex-direction: column;
+    }
+    span {
+        font-family: "Gluten Variable", system-ui;
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+</style>

@@ -7,36 +7,75 @@ const actionError = isActionError(result?.error);
 
 const email = Astro.cookies.get("_email")?.value;
 ---
-{actionError && <span id="error">Something went wrong. Please try again later.</span>}
+{(actionError || inputErrors.email)&& <span style="margin-bottom: 1rem;" id="error">Something went wrong. Please try again later.</span>}
 <form method="POST" action={actions.member.updateMember}>
-    <h1>Sign Up for updates</h1>
-    <label for="place">Place?</label>
+    <h1>We would love to know you more 💛</h1>
+    <p id="description">Would you be open to sharing a little more about yourself to help us know you better?
+        This is optional. You can also skip this if you don't feel ready to share.</p>
+    <hr>
+    <label for="place">Which place will you be joining us from?</label>
+    <p class="helper-label">Are you from Wonderland, Middle Earth or Neverland?</p>
     <input transition:persist type="text" name="place" id="place" />
     {inputErrors.place && <span id="error">Please type your input</span>}
-    <label for="connection">How did you get to know about CBA?</label>
-    <textarea transition:persist name="connection" id="connection"></textarea>
+    <label for="connection">How did you get to know about <em>Children's Book For All</em>?</label>
+    <p class="helper-label">Who is letting the secret out? ;)</p>
+    <textarea rows=4 transition:persist name="connection" id="connection"></textarea>
     {inputErrors.connection && <span id="error">Check your input</span>}
-    <label for="about">Tell us about you</label>
-    <textarea transition:persist name="about" id="about"></textarea>
+    <label for="about">What do you want us to know about you? </label>
+    <p class="helper-label">If you'd be meeting us for the first time, what would you like to tell us that reflects who you are? (your values, likes, dreams, a story, anything actually)</p>
+    <textarea rows=4 transition:persist name="about" id="about"></textarea>
     {inputErrors.about && <span id="error">Check your input</span>}
-    <label for="message">Tell us about you</label>
-    <textarea transition:persist name="message" id="message"></textarea>
+    <label for="message">Any message or feedback you have for us.</label>
+    <textarea rows=4 transition:persist name="message" id="message"></textarea>
     {inputErrors.message && <span id="error">Check your input</span>}
     <input type="hidden" name="email" value={email}>
-    <input type="submit" id="submit" value="Sign up for updates" />
+    <input type="submit" id="submit" value="Submit" />
+    <a href="/sign-up/thanks">Skip</a>
+
 </form>
 <style>
     form {
         display: flex;
         flex-direction: column;
-        max-width: 600px;
+        max-width: 80%;
         margin: auto;
         padding: 0rem 1.5rem 1.5rem 2rem;
         gap: 0.5rem;
+        width: 600px;
+    }
+    h1{
+        margin-bottom: 0;
     }
     #error{
         color: red;
         display: block;
         text-align: center;
+    }
+    a{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #description{
+        margin-bottom: 0.5rem;
+    }
+    label{
+        margin-bottom: 0.2rem;
+        font-weight: 500;
+    }
+    .helper-label{
+        margin-top: -0.5rem;
+        margin-bottom: 0.2rem;
+        font-size: 0.9rem;
+        color: #fff00;
+    }
+    textarea{
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    hr{
+        margin-top: 0;
+        margin: auto;
+        margin-bottom: 1rem;
+        background-color: lightgray;
     }
 </style>

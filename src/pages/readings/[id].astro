@@ -7,8 +7,8 @@ import { actions } from "astro:actions";
 
 const { id } = Astro.params;
 const readingId = Number(id);
-if(! Number.isInteger(readingId)){
-    return Astro.redirect("404");
+if (!Number.isInteger(readingId)) {
+    return Astro.redirect("/404");
 }
 const reading = await db
     .select()
@@ -16,7 +16,7 @@ const reading = await db
     .where(eq(Readings.id, readingId));
 
 if (reading.length === 0) {
-    return Astro.redirect("404");
+    return Astro.redirect("/404");
 }
 
 const {
@@ -30,7 +30,7 @@ const {
     facilitators,
 } = reading[0];
 
-Astro.cookies.set("_calendar", calendar, {maxAge: 3600, path:'/'});
+Astro.cookies.set("_calendar", calendar, { maxAge: 3600, path: "/" });
 
 const displayFormattedDate = function (readingDate: Date) {
     const months = [
@@ -72,24 +72,30 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
 const result = Astro.getActionResult(actions.reading.addConfirmation);
 if (result && !result.error) {
     return Astro.redirect("/readings/contribute");
-}
-else{
+} else {
     console.log(result?.error);
 }
 ---
 
 <Layout>
-    <ReadingInfo
-        date={displayFormattedDate(date)}
-        time={displayFormattedTimings(startTime, endTime)}
-        bookCover={bookCover}
-        location={location}
-        description={description}
-        facilitators={facilitators}
-    />
-    <ConfirmParticipation readingDate={date} />
+    <main>
+        <ReadingInfo
+            date={displayFormattedDate(date)}
+            time={displayFormattedTimings(startTime, endTime)}
+            bookCover={bookCover}
+            location={location}
+            description={description}
+            facilitators={facilitators}
+        />
+        <ConfirmParticipation readingDate={date} />
+    </main>
 </Layout>
 <style>
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
     .hidden-label {
         display: none;
     }
@@ -106,6 +112,7 @@ else{
         max-width: 650px;
         margin: auto;
     }
+
     @media only screen and (min-width: 480px) {
         section {
             flex-direction: row;

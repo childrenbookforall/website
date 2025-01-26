@@ -1,19 +1,61 @@
 ---
 import MemberSignUp from "../../components/MemberSignUp.astro";
 import Layout from "../../layouts/Layout.astro";
-
-import { actions } from "astro:actions"
+import { actions } from "astro:actions";
 
 const result = Astro.getActionResult(actions.member.addMember);
 if (result && !result.error) {
-  Astro.cookies.set('_email', result.data[0].email, {maxAge: 3600, path: '/'});
-  return Astro.redirect('/sign-up/update');
-}
-else{
-    console.log(result?.error)
+  Astro.cookies.set("_email", result.data[0].email, {
+    maxAge: 3600,
+    path: "/",
+  });
+  return Astro.redirect("/sign-up/update");
+} else {
+  console.log(result?.error);
 }
 ---
 
 <Layout>
-    <MemberSignUp/>
+  <main>
+    <div id="hero">
+      <h1>
+        Join us to build an evocative space for play, wonder, joy and community
+      </h1>
+      <p>
+        We read children's books, in-person as well as online, to all ages from
+        a psycho-socio-emotional lens
+      </p>
+      <div id="social-media">
+        <a href="https://www.instagram.com/childrensbookforall/"><img src="/instagram.webp" alt="Instagram Link"></a>
+        <a href="mailto:childrensbookforall@gmail.com"><img width=45 src="/mail.webp" alt="Mail Link"></a>
+        <a href=""><img width=40 src="/whatsapp.webp" alt="Whatsapp Link"></a>
+      </div>
+    </div>
+    <MemberSignUp />
+  </main>
 </Layout>
+
+<style>
+  main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.8rem;
+    padding-top: 0;
+  }
+  #hero{
+    max-width: 575px;
+  }
+  #hero p{
+    font-size: 1.4rem;
+  }
+  #social-media{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: baseline;
+    margin-top: 2rem;
+  }
+</style>

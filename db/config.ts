@@ -1,5 +1,18 @@
 import { defineDb, defineTable, column, NOW } from 'astro:db';
 
+const Members = defineTable({
+  columns: {
+    name: column.text(),
+    email: column.text({primaryKey: true}),
+    phone: column.text(),
+    message: column.text({optional: true}),
+    about: column.text({optional: true}),
+    connection: column.text({optional: true}),
+    place: column.text({optional: true}),
+    date: column.date({default: NOW})
+  }
+});
+
 const ReadingConfirmations = defineTable({
   columns: {
     name: column.text(),
@@ -31,5 +44,5 @@ const Readings = defineTable({
 
 
 export default defineDb({
-  tables: { ReadingConfirmations, Readings},
+  tables: { ReadingConfirmations, Readings, Members },
 })

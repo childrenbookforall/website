@@ -45,7 +45,7 @@ export default async function() {
 		id: 2,
 		title: "Ish",
 		bookCover: "https://m.media-amazon.com/images/I/61Dnp3FAowL._SL1000_.jpg",
-		date: new Date("2025-01-26"),
+		date: new Date("2025-01-27"),
 		startTime: 450,
 		endTime: 820,
 		location: "Offline",

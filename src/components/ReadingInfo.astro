@@ -1,33 +1,47 @@
 ---
-const {date, time, location, bookCover, description, facilitators} = Astro.props;
+import Facilitator from "./Facilitator.astro";
+import { Icon } from "astro-icon/components";
+
+const { date, time, location, bookCover, description, facilitators } =
+    Astro.props;
 ---
 
 <section>
     <div id="reading-info">
         <h2 class="hidden-label">Date and Time</h2>
-        <p>{date}</p>
-        <p>{time}</p>
+        <div>
+            <Icon name="fluent-color:calendar-clock-16" size={40} is:inline />
+            <div style="display: inline-block;">
+                <p id="date">{date}</p>
+                <p id="time">{time}</p>
+            </div>
+        </div>
+
         <h3 class="hidden-label">Location</h3>
-        <p>{location}</p>
+        <div style="display: flex; align-content: center; margin-bottom: 1rem">
+            <Icon name="fluent-color:location-ripple-16" size={40} is:inline />
+            <span id="location">{location}</span>
+        </div>
     </div>
     <div id="book-cover">
-        <img
-            width="250"
-            src={bookCover}
-            alt="book cover"
-        />
+        <img width="250" src={bookCover} alt="book cover" />
     </div>
     <p id="description">
         {description}
     </p>
     <div id="facilitators">
         <h4 class="hidden-label">Facilitators</h4>
-        {facilitators.map((facilitator: any)=>(
-            <span>{facilitator.name}</span>
-        ))}
+        {
+            facilitators.map((facilitator: any) => (
+                <Facilitator
+                    name={facilitator.name}
+                    profile_image={facilitator.profile_image}
+                    profile_link={facilitator.profile_link}
+                />
+            ))
+        }
     </div>
 </section>
-<hr />
 <style>
     .hidden-label {
         display: none;
@@ -38,12 +52,48 @@ const {date, time, location, bookCover, description, facilitators} = Astro.props
         justify-content: center;
         align-items: center;
     }
-    #description{
+    #description {
         padding: 0 1.5rem;
     }
     hr {
         max-width: 650px;
         margin: auto;
+    }
+    #date {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    #time{
+        margin-top: 0;
+        text-align: center;
+    }
+
+    #location{
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    #book-cover{
+        box-shadow: 1px 1px 5px;
+        margin-bottom: 1rem;
+    }
+    #reading-info{
+        border: 1px solid lightgray;
+        background-color: lightyellow;
+        padding: 0.5rem 1.5rem;
+        border-radius: 12px;
+        /* margin-top: 1rem; */
+        margin-bottom: 1rem;
+        box-shadow: 1px 1px 2px;
+    }
+    #description{
+        font-size: 1.2rem;
+    }
+    #facilitators{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
     @media only screen and (min-width: 480px) {
         section {
@@ -53,16 +103,16 @@ const {date, time, location, bookCover, description, facilitators} = Astro.props
             max-width: 600px;
             margin: auto;
         }
-        #book-cover{
+        #book-cover {
             order: 1;
         }
-        #reading-info{
+        #reading-info {
             order: 2;
         }
-        #description{
+        #description {
             order: 3;
         }
-        #facilitators{
+        #facilitators {
             order: 4;
         }
     }
