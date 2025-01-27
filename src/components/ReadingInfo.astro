@@ -13,7 +13,7 @@ const { date, time, location, bookCover, description, facilitators } =
             <span id="month">{date.month}</span>
         </div>
         <div class="time">
-            <span id="day">Wednesday</span>
+            <span id="day">{date.day}</span>
             <span id="time">{time}</span>
             <span id="location">
                 <Icon name="ic:baseline-location-on" color="#6cbfae" is:inline size={16}/>
@@ -95,7 +95,8 @@ const { date, time, location, bookCover, description, facilitators } =
         font-size: 0.9rem;
     }
     #book-cover{
-        box-shadow: 1px 1px 5px;
+        box-shadow: 0 0 5px -1px black, inset -1px 1px 2px rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
         margin-bottom: 1rem;
     }
     #reading-info{

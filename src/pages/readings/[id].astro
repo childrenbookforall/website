@@ -47,11 +47,15 @@ const displayFormattedDate = function (readingDate: Date) {
         "Nov",
         "Dec",
     ];
+    const days = ["Sunday", "Monday", "Tuesday",
+        "Wednesday", "Thursday", "Friday", "Saturday"
+    ]
     const date = readingDate.getDate().toString();
     const month = months[readingDate.getMonth()];
     const year = readingDate.getFullYear().toString();
+    const day = days[readingDate.getDay()];
 
-    return {"date": date, "month": month, "year": year};
+    return {"date": date, "day": day, "month": month, "year": year};
 };
 
 const formatTime = function (time: number) {
