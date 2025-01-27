@@ -34,24 +34,24 @@ Astro.cookies.set("_calendar", calendar, { maxAge: 3600, path: "/" });
 
 const displayFormattedDate = function (readingDate: Date) {
     const months = [
-        "January",
-        "February",
-        "March",
-        "April",
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
         "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
     ];
     const date = readingDate.getDate().toString();
     const month = months[readingDate.getMonth()];
     const year = readingDate.getFullYear().toString();
 
-    return date.concat(" ", month, " ", year);
+    return {"date": date, "month": month, "year": year};
 };
 
 const formatTime = function (time: number) {
@@ -94,44 +94,29 @@ if (result && !result.error) {
     main {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
         gap: 0.5rem;
     }
     .hidden-label {
         display: none;
     }
-    section {
+    /* section {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
-    }
+    } */
     #description {
         padding: 0 1.5rem;
     }
-    hr {
-        max-width: 650px;
-        margin: auto;
-    }
 
     @media only screen and (min-width: 480px) {
-        section {
+        /* section {
             flex-direction: row;
             flex-wrap: wrap;
             gap: 5%;
             max-width: 600px;
             margin: auto;
-        }
-        #book-cover {
-            order: 1;
-        }
-        #reading-info {
-            order: 2;
-        }
-        #description {
-            order: 3;
-        }
-        #facilitators {
-            order: 4;
-        }
+        } */
     }
 </style>

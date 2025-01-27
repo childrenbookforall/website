@@ -1,14 +1,27 @@
 ---
 import Nav from "../components/Nav.astro";
+import { Icon } from "astro-icon/components";
 import '../styles/mvp.css'
+import Layout from "../layouts/Layout.astro"
 ---
-<header>
-    <Nav/>
-    <section>
-        <aside>
-            <h2>404</h2>
-            <h2>Something went wrong</h2>
-        </aside>
-    </section>
-</header>
+
+<Layout>
+        <section>
+            <aside>
+                <h2>
+                    <Icon name="ic:baseline-error" color="red" size={30}/>
+                    <span>404</span>
+                </h2>
+                <h2>Something went wrong</h2>
+            </aside>
+        </section>
+</Layout>
+<style>
+    h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+</style>
 

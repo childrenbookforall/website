@@ -20,11 +20,11 @@ const calendar_link = calendar.toString();
             <p>We hope to see you soon! <br>
                 You can save the reading event to your calendar by clicking on the link below.
             </p>
-            <a 
+            <a
             target="_blank"
             href={calendar_link}>
-                <b>  
-                    <Icon name="fluent-color:calendar-16" size={20} is:inline />
+                <b id="calendar-btn">  
+                    <Icon name="ic:baseline-calendar-today" size={20} is:inline />
                     Add to Calendar</b>
             </a>
         </aside>
@@ -50,8 +50,11 @@ const calendar_link = calendar.toString();
         display: flex;
         justify-content: center;
     }
-    a>b{
+    #calendar-btn{
         padding: 0.5rem 1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
     
 </style>
