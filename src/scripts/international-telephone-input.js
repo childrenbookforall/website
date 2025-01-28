@@ -37,21 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         const {phone = false,} = object;
-
-        var phoneLabel = document.querySelector('.phone-label');
         var isValidNumber = numberValidation(phone);
-        console.clear();
-        console.log(isValidNumber);
-
-        if(isValidNumber.valid) {
-            phoneLabel.style.cssText = "color: blue; font-size: 30px;";
-            document.querySelector('form').style.cssText = "position: relative; left: 13%;";
-            phoneLabel.innerText = "International Telephone Input is Valid (" + isValidNumber.valid + ")";
-        } else {
-            phoneLabel.style.cssText = "color: red; font-size: 30px;";
-            document.querySelector('form').style.cssText = "position: relative; left: 16%;";
-            phoneLabel.innerText = "International Telephone Input is Not Valid (" + isValidNumber.valid + ")";
-        }
+        
     });
 
 });

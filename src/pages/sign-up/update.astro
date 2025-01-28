@@ -7,8 +7,9 @@ const result = Astro.getActionResult(actions.member.updateMember);
 if (result && !result.error) {
   return Astro.redirect('/sign-up/thanks');
 }
-else{
-    console.log(result?.error)
+const actionError = result?.error?.status === 500;
+if (actionError){
+  return Astro.redirect('/500');
 }
 ---
 

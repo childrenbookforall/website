@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout>
+    <section>
+        <aside>
+            <h2>
+                <Icon name="ic:baseline-error" color="red" size={40}/>
+            </h2>
+            <p>Your email id is already registered with us</p>
+        </aside>
+    </section>
+    <section>
+        <a href="/" data-astro-reload>Back Home</a>
+    </section>
+</Layout>
+<style>
+    h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    p{
+        text-align: center;
+        font-size: 1.25rem;
+    }
+</style>

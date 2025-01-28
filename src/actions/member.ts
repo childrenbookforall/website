@@ -18,11 +18,11 @@ export const member = {
                 email: input.email,
                 phone: input.phone,
             }
+            
             const addedMember = await db
                 .insert(Members)
                 .values(member)
                 .returning();
-            //Send a calendar invite to the gmail for the event
 
             return addedMember;
         },

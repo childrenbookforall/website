@@ -4,14 +4,18 @@ import Layout from "../../layouts/Layout.astro";
 import { actions } from "astro:actions";
 
 const result = Astro.getActionResult(actions.member.addMember);
+
 if (result && !result.error) {
   Astro.cookies.set("_email", result.data[0].email, {
     maxAge: 3600,
     path: "/",
   });
   return Astro.redirect("/sign-up/update");
-} else {
-  console.log(result?.error);
+} 
+
+const actionError = result?.error?.status === 500;
+if (actionError){
+  return Astro.redirect('/500');
 }
 ---
 
@@ -28,10 +32,14 @@ if (result && !result.error) {
       <div id="social-media">
         <a href="https://www.instagram.com/childrensbookforall/"><img src="https://ik.imagekit.io/ty6gikkxo/instagram.svg?updatedAt=1737934951830" alt="Instagram Link"></a>
         <a href="mailto:childrensbookforall@gmail.com"><img width=45 src="https://ik.imagekit.io/ty6gikkxo/mail.svg?updatedAt=1737934952236" alt="Mail Link"></a>
-        <a href="https://api.whatsapp.com/send?phone=919599944099"><img width=40 src="https://ik.imagekit.io/ty6gikkxo/whatsapp.svg?updatedAt=1737934951879" alt="Whatsapp Link"></a>
+        <a href="https://api.whatsapp.com/send?phone=919599944099"><img width=38 src="https://ik.imagekit.io/ty6gikkxo/whatsapp.svg?updatedAt=1737934951879" alt="Whatsapp Link"></a>
       </div>
     </div>
-    <MemberSignUp />
+    <div>
+      <!-- {actionError && <span style="margin-top: -1rem" class="error">Your email id is already registered for CBA updates</span>} -->
+      <MemberSignUp />
+    </div>
+    
   </main>
 </Layout>
 
@@ -61,7 +69,15 @@ if (result && !result.error) {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    align-items: baseline;
+    align-items: center;
     margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    /* border: 1px solid black */
   }
+  .error{
+        color: red;
+        display: block;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
 </style>

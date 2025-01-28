@@ -12,8 +12,11 @@ import Layout from "../layouts/Layout.astro"
                     <Icon name="ic:baseline-error" color="red" size={30}/>
                     <span>404</span>
                 </h2>
-                <h2>Something went wrong</h2>
+                <p>Something went wrong</p>
             </aside>
+        </section>
+        <section>
+            <a href="/" data-astro-reload>Back Home</a>
         </section>
 </Layout>
 <style>
@@ -22,6 +25,10 @@ import Layout from "../layouts/Layout.astro"
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
+    }
+    p{
+        text-align: center;
+        font-size: 1.25rem;
     }
 </style>
 

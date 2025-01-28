@@ -76,8 +76,10 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
 const result = Astro.getActionResult(actions.reading.addConfirmation);
 if (result && !result.error) {
     return Astro.redirect("/readings/contribute");
-} else {
-    console.log(result?.error);
+}
+const actionError = result?.error?.status === 500;
+if (actionError){
+  return Astro.redirect('/500');
 }
 ---
 
@@ -99,28 +101,15 @@ if (result && !result.error) {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         gap: 0.5rem;
     }
     .hidden-label {
         display: none;
     }
-    /* section {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    } */
+    
     #description {
         padding: 0 1.5rem;
-    }
-
-    @media only screen and (min-width: 480px) {
-        /* section {
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 5%;
-            max-width: 600px;
-            margin: auto;
-        } */
     }
 </style>

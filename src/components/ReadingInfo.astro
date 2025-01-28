@@ -28,16 +28,18 @@ const { date, time, location, bookCover, description, facilitators } =
         {description}
     </p>
     <div id="facilitators">
-        <h4 class="hidden-label">Facilitators</h4>
-        {
-            facilitators.map((facilitator: any) => (
-                <Facilitator
-                    name={facilitator.name}
-                    profile_image={facilitator.profile_image}
-                    profile_link={facilitator.profile_link}
-                />
-            ))
-        }
+        <h4>Facilitated By</h4>
+        <div>
+            {
+                facilitators.map((facilitator: any) => (
+                    <Facilitator
+                        name={facilitator.name}
+                        profile_image={facilitator.profile_image}
+                        profile_link={facilitator.profile_link}
+                    />
+                ))
+            }
+        </div>
     </div>
 </section>
 <style>
@@ -51,7 +53,7 @@ const { date, time, location, bookCover, description, facilitators } =
         align-items: center;
     }
     #description {
-        padding: 0 1.5rem;
+        padding: 0;
     }
     hr {
         max-width: 650px;
@@ -116,9 +118,20 @@ const { date, time, location, bookCover, description, facilitators } =
     #description{
         font-size: 1.2rem;
     }
+    h4{
+        text-align: center;
+        border-radius: 15px;
+        background-color: #344cb7;
+        color: white;
+        padding: 0.25rem 1rem;
+        display: inline-block;
+        font-size: 0.9rem;
+        /* margin: auto; */
+    }
     #facilitators{
         margin-top: 1rem;
         margin-bottom: 2rem;
+        margin-right: auto;
     }
     @media only screen and (min-width: 480px) {
         section {

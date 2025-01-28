@@ -1,7 +1,8 @@
 ---
 const {name, profile_image, profile_link} = Astro.props;
 ---
-<a href={profile_link}>
+<a  target="_blank"
+    href={profile_link}>
     <span>
         <img width=30 src={profile_image} alt="Profile image of the facilitator">
         <span>{name}</span>
@@ -16,12 +17,7 @@ const {name, profile_image, profile_link} = Astro.props;
         color: black;
         margin-bottom: 0.5rem;
     }
-    a:hover{
-        /* background-color: lightgray; */
-        /* text-decoration: underline; */
-        /* filter: none; */
-    }
-
+    
     span{
         display: flex;
         /* gap: 0.25rem; */

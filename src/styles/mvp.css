@@ -367,9 +367,10 @@ figure figcaption {
 /* Forms */
 button:disabled,
 input:disabled {
-  background: var(--color-bg-secondary);
-  border-color: var(--color-bg-secondary);
+  background: #f2f2f2;
+  border-color: #f2f2f2;
   color: var(--color-text-secondary);
+  /* opacity: 0.4; */
   cursor: not-allowed;
 }
 
