@@ -1,0 +1,15 @@
+---
+const {readingId, date, time, location, title, bookCover} = Astro.props;
+import DateCard from "./DateCard.astro";
+---
+    <aside>
+        <img src={bookCover} alt=`Cover page of the book ${title}`>
+        <DateCard 
+            date={date}
+            time={time}
+            location={location}
+            readingId={readingId}/>   
+        <a href=`/readings/${readingId}` data-astro-reload>
+            <b>Register</b>
+        </a>           
+    </aside>

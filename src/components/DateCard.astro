@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { date, time, location } = Astro.props;
+---
+
+<div class="reading-info">
+    <div class="date">
+        <span id="date-num">{date.date}</span>
+        <span id="month">{date.month}</span>
+    </div>
+    <div class="time">
+        <span id="day">{date.day}</span>
+        <span id="time">{time}</span>
+        <span id="location">
+            <Icon
+                name="ic:baseline-location-on"
+                color="#6cbfae"
+                is:inline
+                size={16}
+            />
+            {location}
+        </span>
+    </div>
+</div>
+
+<style>
+    .reading-info {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .date{
+        display: flex;
+        flex-direction: column;
+        border-right: 3px solid #A1D6CB;
+        padding-right: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    #date-num{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    #month{
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    
+    .time{
+        display: flex;
+        flex-direction: column;
+    }
+    #day{
+        text-transform: uppercase;
+        color: gray;
+        font-size: 0.75rem;
+    }
+    #time{
+        font-weight: 600;
+    }
+    #location{
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+        color: gray;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+</style>

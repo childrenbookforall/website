@@ -1,0 +1,132 @@
+---
+import ReadingCard from "./ReadingCard.astro";
+import { db, Readings, desc } from "astro:db";
+
+const readings = await db
+    .select()
+    .from(Readings)
+    .orderBy(desc(Readings.date))
+    .limit(3);
+
+const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+];
+
+// const today = new Date();
+// const currentMonth = months[today.getMonth()];
+// const currentYear = today.getFullYear();
+ const today = readings[0].date.getDate();
+ const currentMonth = months[readings[0].date.getMonth()];
+ const currentYear = readings[0].date.getFullYear();
+
+const displayFormattedDate = function (readingDate: Date) {
+    const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const date = readingDate.getDate().toString();
+    const month = months[readingDate.getMonth()];
+    const year = readingDate.getFullYear().toString();
+    const day = days[readingDate.getDay()];
+
+    return { date: date, day: day, month: month, year: year };
+};
+
+const formatTime = function (time: number) {
+    const hour_24 = Math.floor(time / 60);
+    var minutes = time % 60;
+    const prefix = hour_24 > 12 ? "pm" : "am";
+    const hour_12 = hour_24 > 12 ? hour_24 - 12 : hour_24;
+    const hour_in_string = hour_12.toString();
+    const minutes_in_string =
+        minutes < 10 ? "0" + minutes.toString() : minutes.toString();
+    return hour_in_string.concat(":", minutes_in_string, " ", prefix);
+};
+
+const displayFormattedTimings = function (startTime: number, endTime: number) {
+    return formatTime(startTime).concat(" - ", formatTime(endTime));
+};
+---
+
+<hr />
+<section>
+    <header>
+        <h2>Upcoming Readings</h2>
+        <p>{`${currentMonth} ${currentYear}`}</p>
+    </header>
+    <div>
+        {
+            readings
+                .slice(0)
+                .reverse()
+                .map((reading) => {
+                    return (
+                        <ReadingCard
+                            readingId={reading.id}
+                            title={reading.title}
+                            date={displayFormattedDate(reading.date)}
+                            time={displayFormattedTimings(
+                                reading.startTime,
+                                reading.endTime,
+                            )}
+                            bookCover={reading.bookCover}
+                            location={reading.location}
+                        />
+                    );
+                })
+        }
+    </div>
+    
+</section>
+<style>
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+    }
+    section div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    hr {
+        width: 80%;
+        margin: auto;
+        padding: 0;
+        border-color: lightgray;
+        border-top: 1px solid lightgray;
+        background-color: lightgray;
+        border-radius: 5px;
+        max-width: 900px;
+    }
+    header {
+        padding-bottom: 1.25rem;
+    }
+    header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.25rem;
+    }
+    header p {
+        font-size: 1.4rem;
+        margin-top: 0;
+    }
+</style>

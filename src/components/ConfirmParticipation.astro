@@ -4,77 +4,100 @@ import "../styles/international-telephone-input.css";
 
 const { readingDate } = Astro.props;
 
+
 const result = Astro.getActionResult(actions.reading.addConfirmation);
 const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
 // const actionError = isActionError(result?.error);
 ---
 
 <form method="POST" action={actions.reading.addConfirmation}>
-    <h1>Confirm Your Participation</h1>
-    <label for="name">Name</label>
-    <input transition:persist required type="text" name="name" id="name" />
-    {
-        inputErrors.name && (
-            <span style="margin-top: -1rem" id="error">
-                Please check your name again
-            </span>
-        )
-    }
-    <label for="email">Email</label>
-    <input transition:persist required type="email" name="email" id="email" />
-    {
-        inputErrors.email && (
-            <span style="margin-top: -1rem" id="error">
-                Please check your email again
-            </span>
-        )
-    }
-    <!-- {
+    <fieldset>
+        <h1>Confirm Your Participation</h1>
+        <label for="name">Name</label>
+        <input transition:persist required type="text" name="name" id="name" />
+        {
+            inputErrors.name && (
+                <span style="margin-top: -1rem" id="error">
+                    Please check your name again
+                </span>
+            )
+        }
+        <label for="email">Email</label>
+        <input
+            transition:persist
+            required
+            type="email"
+            name="email"
+            id="email"
+        />
+        {
+            inputErrors.email && (
+                <span style="margin-top: -1rem" id="error">
+                    Please check your email again
+                </span>
+            )
+        }
+        <!-- {
         actionError && (
             <span style="margin-top: -1rem" id="error">
                 You are already registered for this reading
             </span>
         )
     } -->
-    <label for="phone">Phone</label>
-    <div transition:persist class="iti">
-        <input transition:persist required type="tel" name="phone" id="phone" />
-    </div>
-    {
-        inputErrors.phone && (
-            <span id="error">Please check your phone number again</span>
-        )
-    }
-    <label id="contribution-label" for="contribution"
-        >Amount you intend to contribute for the reading</label
-    >
-    <span class="input-symbol-rupee">
-        <input
-            transition:persist
-            required
-            type="number"
-            step="50"
-            name="contribution"
-            id="contribution"
-        />
-    </span>
-    {
-        inputErrors.contribution && (
-            <span style="margin-top: -1rem" id="error">
-                Please check your contribution amount again
-            </span>
-        )
-    }
-    <input type="hidden" name="readingDate" value={readingDate} />
-    <input type="submit" id="submit" value="Send me an invite" />
+        <label for="phone">Phone</label>
+        <div transition:persist class="iti">
+            <input
+                transition:persist
+                required
+                type="tel"
+                name="phone"
+                id="phone"
+            />
+        </div>
+        {
+            inputErrors.phone && (
+                <span id="error">Please check your phone number again</span>
+            )
+        }
+        <label id="contribution-label" for="contribution"
+            >Amount you intend to contribute for the reading</label
+        >
+        <span class="input-symbol-rupee">
+            <input
+                transition:persist
+                required
+                type="number"
+                step="50"
+                name="contribution"
+                id="contribution"
+            />
+        </span>
+        {
+            inputErrors.contribution && (
+                <span style="margin-top: -1rem" id="error">
+                    Please check your contribution amount again
+                </span>
+            )
+        }
+        <input type="hidden" name="readingDate" value={readingDate} />
+        <input type="submit" id="submit" value="Send me an invite" />
+    </fieldset>
 </form>
 <script src="../scripts/international-telephone-input.js"></script>
-<script>
-    const form = document.querySelector('form');
-    const submitBtn = document.querySelector('#submit');
-    form?.addEventListener('submit', ()=>{
+<script define:vars={{ readingDate }}>
+    const form = document.querySelector("form");
+    const submitBtn = document.querySelector("#submit");
+    form?.addEventListener("submit", () => {
         submitBtn?.setAttribute("disabled", "");
-    })
+    });
+
+    // logic for disabling the form if the date is passed
+    const fieldset = document.querySelector("fieldset");
+    const today = new Date();
+    const reading_date = new Date(readingDate);
+    if(today > reading_date){
+        fieldset.setAttribute("disabled","");
+    }
 </script>
 <style>
     form {
@@ -85,7 +108,9 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
         gap: 0.5rem;
         max-width: 400px;
     }
-    
+    fieldset{
+        display: contents;
+    }
     #error {
         color: red;
         display: block;

@@ -1,6 +1,7 @@
 ---
 import MemberSignUp from "../../components/MemberSignUp.astro";
 import Layout from "../../layouts/Layout.astro";
+import UpcomingReadings from "../../components/UpcomingReadings.astro";
 import { actions } from "astro:actions";
 
 const result = Astro.getActionResult(actions.member.addMember);
@@ -20,13 +21,13 @@ if (actionError){
 ---
 
 <Layout>
-  <main>
+  <main class="sign-up">
     <div id="hero">
       <h1>
         Join us to build an evocative space for play, wonder, joy and community
       </h1>
       <p>
-        We read children's books, <em>in-person</em> as well as <em>online</em>, to all ages from
+        We read children's books, <em>in-person</em> as well as <em>online</em>, with all ages from
         a <em>psycho-socio-emotional</em> lens
       </p>
       <div id="social-media">
@@ -39,12 +40,12 @@ if (actionError){
       <!-- {actionError && <span style="margin-top: -1rem" class="error">Your email id is already registered for CBA updates</span>} -->
       <MemberSignUp />
     </div>
-    
   </main>
+  <UpcomingReadings/>
 </Layout>
 
 <style>
-  main{
+  .sign-up{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -52,6 +53,8 @@ if (actionError){
     align-items: center;
     gap: 1.8rem;
     padding-top: 0;
+    width: 100%;
+    margin: auto;
   }
   em{
     text-decoration: none;

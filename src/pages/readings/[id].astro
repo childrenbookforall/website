@@ -26,6 +26,7 @@ const {
     location,
     bookCover,
     description,
+    message,
     calendar,
     facilitators,
 } = reading[0];
@@ -92,6 +93,7 @@ if (actionError){
             location={location}
             description={description}
             facilitators={facilitators}
+            message={message}
         />
         <ConfirmParticipation readingDate={date} />
     </main>

@@ -28,6 +28,7 @@ export default async function() {
 		endTime: 1080,
 		location: "Online",
 		description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab cumque perferendis eveniet atque cum, consequatur neque necessitatibus in recusandae laboriosam facere modi officia dignissimos ea accusamus ducimus, facilis aliquid quo?",
+		message: "All readings are based on pay what you want model. The proceeds for this reading will go towards adding more books to the Children's Book For All library in Dharamshala, Himachal Pradesh",
 		calendar: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=Y2tyMzJwMWg3MWdqMmI5azYwcmo4YjlrNmhqNjRiYjE2bGhqNmI5bGNjcjNpbzlwY2RpajRjMWdjZyByYWplZXZteW5hbWVAbQ&tmsrc=rajeevmyname%40gmail.com",
 		facilitators: [
 			{
@@ -45,11 +46,12 @@ export default async function() {
 		id: 2,
 		title: "Ish",
 		bookCover: "https://m.media-amazon.com/images/I/61Dnp3FAowL._SL1000_.jpg",
-		date: new Date("2025-01-27"),
+		date: new Date("2025-02-27"),
 		startTime: 450,
 		endTime: 820,
 		location: "Offline",
 		description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab cumque perferendis eveniet atque cum, consequatur neque necessitatibus in recusandae laboriosam facere modi officia dignissimos ea accusamus ducimus, facilis aliquid quo?",
+		message: "All readings are based on pay what you want model. The proceeds for this reading will go towards adding more books to the Children's Book For All library.",
 		calendar: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=Y2tyMzJwMWg3MWdqMmI5azYwcmo4YjlrNmhqNjRiYjE2bGhqNmI5bGNjcjNpbzlwY2RpajRjMWdjZyByYWplZXZteW5hbWVAbQ&tmsrc=rajeevmyname%40gmail.com",
 		facilitators: [
 			{

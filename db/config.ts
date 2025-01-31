@@ -37,6 +37,7 @@ const Readings = defineTable({
     endTime: column.number(),
     location: column.text(),
     description: column.text(),
+    message: column.text({optional: true}),
     calendar: column.text(),
     facilitators: column.json()
   }

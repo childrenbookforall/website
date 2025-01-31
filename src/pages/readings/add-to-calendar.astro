@@ -5,7 +5,6 @@ import { Icon } from "astro-icon/components";
 const calendar = Astro.cookies.get("_calendar")?.value;
 
 if(!calendar){
-    console.log(calendar);
     return Astro.redirect('/404');
 }
 
