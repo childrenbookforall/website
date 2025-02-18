@@ -39,7 +39,8 @@ const Readings = defineTable({
     description: column.text(),
     message: column.text({optional: true}),
     calendar: column.text(),
-    facilitators: column.json()
+    facilitators: column.json(),
+    tags: column.text({optional: true})
   }
 });
 

@@ -26,7 +26,7 @@ const months = [
 // const today = new Date();
 // const currentMonth = months[today.getMonth()];
 // const currentYear = today.getFullYear();
- const today = readings[0].date.getDate();
+//  const today = readings[0].date.getDate();
  const currentMonth = months[readings[0].date.getMonth()];
  const currentYear = readings[0].date.getFullYear();
 
@@ -87,6 +87,7 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
                             )}
                             bookCover={reading.bookCover}
                             location={reading.location}
+                            tags={reading.tags?.split(',')}
                         />
                     );
                 })

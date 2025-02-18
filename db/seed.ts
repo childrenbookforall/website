@@ -40,13 +40,14 @@ export default async function() {
 				'name': 'Rajeev Ranjan Jha',
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
-			}]
+			}],
+		tags: "grief, loneliness, friendship"
 	},
 	{
 		id: 2,
 		title: "Ish",
 		bookCover: "https://m.media-amazon.com/images/I/61Dnp3FAowL._SL1000_.jpg",
-		date: new Date("2025-02-27"),
+		date: new Date("2025-02-19"),
 		startTime: 450,
 		endTime: 820,
 		location: "Offline",
@@ -63,7 +64,8 @@ export default async function() {
 				'name': 'Rajeev Ranjan Jha',
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
-			}]
+			}],
+		tags: "grief, loneliness, friendship"
 	}
   ])
 }

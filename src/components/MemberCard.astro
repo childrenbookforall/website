@@ -1,0 +1,79 @@
+---
+import { Icon } from "astro-icon/components";
+const { member, url } = Astro.props;
+---
+<a href={url}>
+    <div class="member-card">
+        <img src={member.image.url} alt={member.image.alt} width="300">
+        <div id="details-button">
+            <Icon name="ic:baseline-arrow-circle-right" size={32} color="#ff8383"/>
+        </div>
+        <h3 id="member-name">{member.name}</h3>
+        <h5 id="member-work">Psychotherapist, Founder CBA</h5>
+        <h5 id="member-location">{member.location}</h5>
+        <p id="member-description">
+            {member.description}
+        </p>
+    </div>
+</a>
+
+<style>
+    *{
+        /* border: 1px solid red; */
+    }
+   .member-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+   }
+   .member-card img{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+   }
+   #details-button{
+    /* width: 400px; */
+    margin-right: 3rem;
+    margin-top: -1rem;
+    align-self: flex-end;
+   }
+    #member-name{
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+    #member-work{
+        margin-top: 0;
+        margin-bottom: 0;
+        color: #303030;
+        font-weight: normal;
+    }
+    #member-location{
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: gray;
+        font-weight: normal;
+    }
+    #member-description{
+        margin-top: 0px;
+        text-wrap: wrap;
+        width: 250px;
+        text-align: center;
+    }
+    a{
+        color: black;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none; 
+    }
+    a:hover{
+        color: black;
+        filter: none;
+        text-decoration: none;
+    }
+    a:active{
+        filter: none;
+    }
+</style>

@@ -1,0 +1,73 @@
+---
+export const prerender = true;
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths({paginate}: any) {
+    const members = await getCollection("communityMembers");
+    return paginate(members, { pageSize: 9 });
+}
+const { page }: any = Astro.props;
+import Layout from "../../layouts/Layout.astro";
+import MemberCard from "../../components/MemberCard.astro";
+import Pagination from "@philnash/astro-pagination";
+---
+
+<Layout>
+    <header>
+        <h2>Our Stories</h2>
+        <p>Origin stories from our community</p>
+    </header>
+    <div class="container">
+        {
+            page.data.map((member: any) => {
+                return (
+                    <MemberCard
+                        member={member.data}
+                        url={`/our-stories/${member.id}`}
+                    />
+                );
+            })
+        }
+    </div>
+    {
+        page.lastPage > 1 && (
+            <div class="pagination">
+                <Pagination
+                    page={page}
+                    urlPattern={"/our-stories/{}"}
+                    windowSize={3}
+                    showFirstLast={false}
+                />
+            </div>
+        )
+    }
+</Layout>
+
+<style>
+   header{
+    margin-top: 1rem;
+    padding-top: 0rem;
+   }
+
+   header h2{
+    font-size: 2rem;
+    margin: 0rem;
+    padding: 0rem;
+   }
+   header p{
+    margin-top: 0rem;
+    font-size: 1.2rem;
+   }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .pagination{
+        display: flex;
+        justify-content: center;
+    }
+</style>
+

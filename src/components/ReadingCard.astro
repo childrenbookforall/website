@@ -1,15 +1,49 @@
 ---
-const {readingId, date, time, location, title, bookCover} = Astro.props;
+const { readingId, date, time, location, title, bookCover, tags } = Astro.props;
+
 import DateCard from "./DateCard.astro";
 ---
+
+<!-- <a id='card' href=`/readings/${readingId}` data-astro-reload> -->
     <aside>
-        <img src={bookCover} alt=`Cover page of the book ${title}`>
-        <DateCard 
+        <img src={bookCover} alt=`Cover page of the book ${title}` />
+        <DateCard
             date={date}
             time={time}
             location={location}
-            readingId={readingId}/>   
+            readingId={readingId}
+        />
+        <div class="tags">
+            {
+                tags.map((tag: any) => {
+                    return <sup>{tag.trim()}</sup>;
+                })
+            }
+        </div>
         <a href=`/readings/${readingId}` data-astro-reload>
             <b>Register</b>
-        </a>           
+        </a>
     </aside>
+<!-- </a> -->
+
+<style>
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    #card {
+        color: black;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+    }
+    #card:hover {
+        color: black;
+        filter: none;
+        text-decoration: none;
+    }
+    #card:active {
+        filter: none;
+    }
+</style>

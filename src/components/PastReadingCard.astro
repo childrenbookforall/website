@@ -1,0 +1,84 @@
+---
+import { Icon } from "astro-icon/components";
+import DateCard from "./DateCard.astro";
+const { reading, url } = Astro.props;
+const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+];
+const displayFormattedDate = function (readingDate: Date) {
+    const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const date = readingDate.getDate().toString();
+    const month = months[readingDate.getMonth()];
+    const year = readingDate.getFullYear().toString();
+    const day = days[readingDate.getDay()];
+
+    return { date: date, day: day, month: month, year: year };
+};
+---
+<a href={url}>
+    <aside class="reading-card">
+        <img src={reading.bookCover.url} alt={reading.bookCover.alt}>
+        <DateCard 
+            date={displayFormattedDate(reading.date)}
+            time={reading.time}
+            location={reading.location}/>
+        <div class="tags">
+            {
+                reading.tags.map((tag: any)=>{
+                    return (<sup>{tag}</sup>)
+                })
+            }
+        </div>            
+    </aside>
+</a>
+
+<style>
+    *{
+        /* border: 1px solid red; */
+    }
+    .reading-card{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem
+    }
+    a{
+        color: black;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none; 
+    }
+    a:hover{
+        color: black;
+        filter: none;
+        text-decoration: none;
+    }
+    a:active{
+        filter: none;
+    }
+    img{
+        height: 240px;
+        align-self: center;
+    }
+    aside{
+        width: 220px;
+    }
+</style>

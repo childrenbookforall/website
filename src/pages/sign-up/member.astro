@@ -40,19 +40,21 @@ if (actionError){
       <!-- {actionError && <span style="margin-top: -1rem" class="error">Your email id is already registered for CBA updates</span>} -->
       <MemberSignUp />
     </div>
-    <UpcomingReadings/>
   </main>
-  
+  <UpcomingReadings/>
 </Layout>
 
 <style>
+  body{
+    width: 100%;
+  }
   .sign-up{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.8rem;
+    gap: 3rem;
     padding-top: 0;
     width: 100%;
     margin: auto;

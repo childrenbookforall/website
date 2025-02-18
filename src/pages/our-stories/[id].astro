@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params;
+if (id === undefined) {
+  return Astro.redirect("/404");
+}
+const post = await getEntry('communityMembers', id);
+
+if (post === undefined) {
+  return Astro.redirect("/404");
+}
+const { Content } = await render(post);
+---
+<Layout>
+    <div>
+        <Content/>
+    </div>
+</Layout>
+<style>
+    div{
+        text-align: center;
+    }
+</style>

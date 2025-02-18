@@ -1,0 +1,66 @@
+---
+export const prerender = true;
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths({paginate}: any) {
+    const readings = await getCollection("pastReadings");
+    return paginate(readings, { pageSize: 9 });
+}
+const { page }: any = Astro.props;
+import Layout from "../../layouts/Layout.astro";
+import Pagination from "@philnash/astro-pagination";
+import PastReadingCard from "../../components/PastReadingCard.astro";
+---
+
+<Layout>
+    <header>
+        <h2>Past Readings</h2>
+        <p>Documentation from our previous readings</p>
+    </header>
+    <section>
+        {
+            page.data.map((reading: any) => {
+                return (
+                    <PastReadingCard
+                        reading={reading.data}
+                        url={`/past-readings/${reading.id}`}
+                    />
+                );
+            })
+        }
+    </section>
+    {
+        page.lastPage > 1 && (
+            <div class="pagination">
+                <Pagination
+                    page={page}
+                    urlPattern={"/past-readings/{}"}
+                    windowSize={3}
+                    showFirstLast={false}
+                />
+            </div>
+        )
+    }
+</Layout>
+
+<style>
+   header{
+    margin-top: 1rem;
+    padding-top: 0rem;
+   }
+
+   header h2{
+    font-size: 2rem;
+    margin: 0rem;
+    padding: 0rem;
+   }
+   header p{
+    margin-top: 0rem;
+    font-size: 1.2rem;
+   }
+    .pagination{
+        display: flex;
+        justify-content: center;
+    }
+</style>
+

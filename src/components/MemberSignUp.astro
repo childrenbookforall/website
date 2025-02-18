@@ -10,7 +10,7 @@ const actionError = result?.error?.status === 500;
 ---
 
 <form method="POST" action={actions.member.addMember}>
-    <h1>Stay updated about our upcoming readings</h1>
+    <h1>Become a part of our growing community</h1>
     <label for="name">Name</label>
     <input transition:persist required type="text" name="name" id="name" />
     {inputErrors.name && <span style="margin-top: -1rem" class="error">Please check your name again</span>}
@@ -23,7 +23,7 @@ const actionError = result?.error?.status === 500;
         <input transition:persist required type="tel" name="phone" id="phone" />
     </div>
     {inputErrors.phone && <span class="error">Please check your phone number again</span>}
-    <input type="submit" id="submit" value="Sign me up!" />
+    <input type="submit" id="submit" value="Join the community!" />
 </form>
 <script src="../scripts/international-telephone-input.js"></script>
 <script>

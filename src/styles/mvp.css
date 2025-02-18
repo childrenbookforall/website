@@ -8,7 +8,7 @@
   --color-bg: white;
   --color-bg-secondary: black;
   --color-link: #FF8383;
-  --color-secondary: #920de9;
+  --color-secondary: #6cbfae;
   --color-secondary-accent: #920de90b;
   --color-shadow: #f4f4f4;
   --color-table: #118bee;
@@ -273,10 +273,9 @@ sup {
   background-color: var(--color-secondary);
   border-radius: var(--border-radius);
   color: var(--color-bg);
-  font-size: xx-small;
   font-weight: bold;
   margin: 0.2rem;
-  padding: 0.2rem 0.3rem;
+  padding: 0.3rem 0.5rem;
   position: relative;
   top: -2px;
 }
@@ -580,4 +579,34 @@ blockquote footer {
 *::-webkit-scrollbar-thumb {
   background-color: var(--color-scrollbar);
   border-radius: 10px;
+}
+/* Pagination styling */
+.pagination ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+.pagination ul li a{
+  text-decoration: none;
+  color: #3b3b3b;
+  text-wrap: nowrap;
+}
+
+.pagination em{
+  text-decoration: none;
+  font-style: normal;
+}
+.number{
+  border: 1px solid #3b3b3b;
+  width: 2rem;
+  height: 2rem;
+  padding: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  text-decoration: none;
 }
