@@ -45,6 +45,50 @@ const Readings = defineTable({
 });
 
 
+const SelfGift = defineTable({
+  columns: {
+    id: column.number({primaryKey: true}),
+    theme: column.text(),
+    budget: column.number(),
+    date: column.date({default: NOW}),
+    name: column.text(),
+    email: column.text(),
+    address: column.text(),
+    phone: column.text(),
+    message: column.text({optional: true})
+  }
+});
+
+const LovedOneGift = defineTable({
+  columns: {
+    id: column.number({primaryKey: true}),
+    theme: column.text(),
+    budget: column.number(),
+    date: column.date({default: NOW}),
+    senderName: column.text(),
+    senderEmail: column.text(),
+    senderPhone: column.text(),
+    receiverName: column.text(),
+    receiverEmail: column.text(),
+    receiverPhone: column.text(),
+    receiverAddress: column.text(),
+    message: column.text({optional: true})
+  }
+});
+
+const CBAGift = defineTable({
+  columns: {
+    id: column.number({primaryKey: true}),
+    theme: column.text(),
+    budget: column.number(),
+    date: column.date({default: NOW}),
+    name: column.text(),
+    email: column.text(),
+    phone: column.text(),
+    message: column.text({optional: true})
+  }
+});
+
 export default defineDb({
-  tables: { ReadingConfirmations, Readings, Members },
+  tables: { ReadingConfirmations, Readings, Members, SelfGift, LovedOneGift, CBAGift },
 })
