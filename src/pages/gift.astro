@@ -1,0 +1,57 @@
+---
+import ChooseReceiver from "../components/ChooseReceiver.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <section>
+        <h1>
+            Do you want to give a gift 🎁 to yourself or a loved one who is
+            experiencing a complex emotion?
+        </h1>
+        <p>
+            Maybe you or your loved one is experiencing emotions of <span class="dotted">loss</span>,
+            <span class="dotted">sadness</span>, <span class="dotted">joy</span> of starting something new, <span class="dotted">anger</span> which is difficult to
+            express in words, <span class="dotted">separation</span> from a loved one or <span class="dotted">any other emotion</span>
+            which needs holding.
+        </p>
+        <p>
+            <em>Children's books</em> are a great gift for people of <span class="dotted">all ages</span> who are in
+            different AND similar walks of life. From the books like <em>The Heart and The
+                Bottle</em> to <em>Jugnu Bhai</em>, these children's books have added meaning in
+            the lives of several people from our CBA <span class="dotted">community</span>.
+        </p>
+        <p>
+            These books have been a <span class="dotted">treasure</span> for us which we want to <span class="dotted">share</span>
+            across with as many people as possible.
+        </p>
+        <!-- </header> -->
+    </section>
+    <ChooseReceiver/>
+</Layout>
+<style>
+    h1 {
+        /* padding-top: 0; */
+        /* margin-top: 0; */
+        margin: 1rem 1.5rem;
+    }
+    section {
+        max-width: 720px;
+        margin: auto;
+        /* text-align: justify !important; */
+        /* text-wrap: balance; */
+    }
+    p {
+        /* text-wrap: balance; */
+        font-size: 1.2rem;
+        margin: 1rem 1.5rem;
+    }
+    .dotted {
+        text-decoration: underline dashed;
+    }
+    em{
+        text-decoration: underline;
+        text-decoration-color: #ff5cdf;
+        text-decoration-thickness: 2px;
+    }
+</style>
