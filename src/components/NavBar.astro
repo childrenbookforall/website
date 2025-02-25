@@ -99,8 +99,11 @@ const currentpath = pathname.split("/")[1];
         /* padding: 0.5rem 1rem; */
         /* border-radius: 2rem; */
         text-decoration: underline !important;
-        color: #293c92 !important;
-        font-weight: 700 !important;
+        text-decoration-color: oklch(89% 0.146 91.5) !important;
+        /* color: #293c92 !important; */
+        font-weight: 500 !important;
+        text-underline-offset: 0.5rem !important;
+        text-decoration-thickness: 4px !important;
         /* color: white !important; */
     }
     li {
@@ -115,6 +118,7 @@ const currentpath = pathname.split("/")[1];
         /* justify-content: center; */
         align-items: center;
         gap: 0.5rem;
+        text-underline-offset: 0.5rem !important;
     }
     li a:hover {
         text-decoration: underline !important;

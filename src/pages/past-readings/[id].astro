@@ -1,25 +1,82 @@
 ---
 import { getEntry, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import Facilitator from "../../components/Facilitator.astro";
 
 const { id } = Astro.params;
 if (id === undefined) {
   return Astro.redirect("/404");
 }
-const post = await getEntry('pastReadings', id);
+const post = await getEntry("pastReadings", id);
 
 if (post === undefined) {
   return Astro.redirect("/404");
 }
+if (!post.rendered?.html) return Astro.rewrite("/past-readings/undocumented");
+
 const { Content } = await render(post);
+
 ---
+
 <Layout>
-    <div>
-        <Content/>
-    </div>
+  <main>
+    <section class="stories">
+      <h1>{post.data.description}</h1>
+      <div class="header">
+        <div class="profile">
+          <img width="50" height="50" src={post.data.author.url} alt={post.data.author.alt}>
+          <span>{post.data.author.name}</span>
+        </div>
+        <span>{post.data.formattedDate}</span>
+      </div>
+      <Content />
+    </section>
+  </main>
 </Layout>
+
 <style>
-    div{
-        text-align: center;
-    }
+  .stories {
+    max-width: 720px;
+    margin: auto;
+    /* text-align: justify !important; */
+    /* text-wrap: balance; */
+    font-size: 1.2rem;
+  }
+  p {
+    /* text-wrap: balance; */
+    font-size: 1.25rem;
+  }
+  .dotted {
+    text-decoration: underline dashed;
+  }
+  em {
+    text-decoration: underline;
+    text-decoration-color: #ff5cdf;
+    text-decoration-thickness: 2px;
+  }
+  .profile img {
+    border-radius: 50%;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .header span {
+    font-size: 1rem;
+    font-weight: 400;
+    /* text-transform: uppercase; */
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  hr {
+    border-color: gray;
+    background-color: lightgray;
+  }
 </style>

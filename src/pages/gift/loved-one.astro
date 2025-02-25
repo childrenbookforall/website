@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { actions } from "astro:actions";
+import GiftToLovedOne from "../../components/GiftToLovedOne.astro";
+
+const result = Astro.getActionResult(actions.gift.giftToLovedOne);
+
+if (result && !result.error) {
+  return Astro.redirect("/gift/payment");
+} 
+
+const actionError = result?.error?.status === 500;
+if (actionError){
+  return Astro.redirect('/500');
+}
+---
+
+<Layout>
+    <GiftToLovedOne/>
+</Layout>

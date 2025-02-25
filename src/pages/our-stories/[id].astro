@@ -6,20 +6,78 @@ const { id } = Astro.params;
 if (id === undefined) {
   return Astro.redirect("/404");
 }
-const post = await getEntry('communityMembers', id);
+const post = await getEntry("communityMembers", id);
 
 if (post === undefined) {
   return Astro.redirect("/404");
 }
+if(!post.rendered?.html)
+  return (Astro.rewrite('/our-stories/making'));
+
 const { Content } = await render(post);
+
 ---
+
 <Layout>
-    <div>
-        <Content/>
-    </div>
+  <main>
+    <section class="stories">
+      <h1>{post.data.description}</h1>
+      <div class="header">
+        <div class="profile">
+          <img width="50" src={post.data.image.url} alt={post.data.image.alt}>
+          <span>{post.data.name}</span>
+        </div>
+        <span>{post.data.date}</span>
+      </div>
+      <Content />
+      <hr>
+    </section>
+  </main>
 </Layout>
+
 <style>
-    div{
-        text-align: center;
-    }
+  .stories {
+    max-width: 720px;
+    margin: auto;
+    /* text-align: justify !important; */
+    /* text-wrap: balance; */
+    font-size: 1.2rem;
+  }
+  p {
+    /* text-wrap: balance; */
+    font-size: 1.25rem;
+  }
+  .dotted {
+    text-decoration: underline dashed;
+  }
+  em {
+    text-decoration: underline;
+    text-decoration-color: #ff5cdf;
+    text-decoration-thickness: 2px;
+  }
+  .profile img{
+    border-radius: 50%;
+  }
+  .profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .header span{
+    font-size: 1rem;
+    font-weight: 400;
+    /* text-transform: uppercase; */
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  hr{
+    border-color: gray;
+    background-color: lightgray;
+  }
 </style>

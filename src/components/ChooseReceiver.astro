@@ -1,40 +1,56 @@
 ---
+
 ---
+
 <div>
-    <form action="">
+    <form>
         <label id="q">I would like to send a Children's book to:</label>
-        <input type="radio" name="choice" id="loved" value="loved">
-        <label for="loved">A Loved One</label><br>
-        <input type="radio" name="choice" id="self" value="self">
-        <label for="self">Myself</label><br>
-        <input type="radio" name="choice" id="cba" value="cba">
+        <input type="radio" name="choice" id="loved" value="loved-one" />
+        <label for="loved">A Loved One</label><br />
+        <input type="radio" name="choice" id="self" value="self" />
+        <label for="self">Myself</label><br />
+        <input type="radio" name="choice" id="cba" value="cba" />
         <label for="cba">
-            <span class="wrappable"><em>Children's Book for All</em> project</span>
-        </label><br>
-        <input type="submit" value="Next">
+            <span class="wrappable"
+                ><em>Children's Book for All</em> project</span
+            >
+        </label><br />
+        <input type="submit" value="Next" />
     </form>
 </div>
-    
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const form = document.querySelector("form");
+        // let next_page = '/gift/'
+        form?.addEventListener("submit", () => {
+            const choice = document.querySelector(
+                'input[name="choice"]:checked',
+            ) as HTMLInputElement;
+            const next_page = "/gift/" + choice.value;
+            window.location.href = next_page;
+        });
+    });
+</script>
 
 <style>
-    div{
+    div {
         margin: auto 1rem;
         margin-bottom: 2rem;
     }
-    form{
+    form {
         max-width: 640px;
         margin: auto;
     }
-    #q{
+    #q {
         font-size: 1.25rem;
         margin-bottom: 1rem;
         /* font-weight: 600; */
     }
-    label{
+    label {
         font-size: 1.1rem;
         /* white-space: nowrap; */
     }
     .wrappable {
-    white-space:normal;
+        white-space: normal;
     }
 </style>

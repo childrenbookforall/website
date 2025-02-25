@@ -69,7 +69,6 @@ const LovedOneGift = defineTable({
     senderEmail: column.text(),
     senderPhone: column.text(),
     receiverName: column.text(),
-    receiverEmail: column.text(),
     receiverPhone: column.text(),
     receiverAddress: column.text(),
     message: column.text({optional: true})

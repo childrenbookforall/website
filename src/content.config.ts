@@ -6,6 +6,7 @@ const pastReadings = defineCollection({
     schema: z.object({
         title: z.string(),
         date: z.date(),
+        formattedDate: z.string(),
         time: z.string(),
         tags: z.array(z.string()),
         description: z.string(),
@@ -14,7 +15,12 @@ const pastReadings = defineCollection({
         bookCover: z.object({
             url: z.string(),
             alt: z.string()
-          })
+          }),
+        author: z.object({
+            name: z.string(),
+            url: z.string(),
+            alt: z.string() 
+        })
     })
 });
 
@@ -22,12 +28,14 @@ const communityMembers = defineCollection({
     loader: glob({ pattern: '**/[^_]*.md', base: "./src/our-stories/" }),
     schema: z.object({
         name: z.string(),
+        work: z.string(),
         description: z.string(),
         location: z.string(),
         image: z.object({
             url: z.string(),
             alt: z.string()
-          })
+          }),
+        date: z.string()
     })
 });
 

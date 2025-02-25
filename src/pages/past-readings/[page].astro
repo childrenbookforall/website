@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths({paginate}: any) {
     const readings = await getCollection("pastReadings");
-    return paginate(readings, { pageSize: 9 });
+    return paginate(readings, { pageSize: 12 });
 }
 const { page }: any = Astro.props;
 import Layout from "../../layouts/Layout.astro";

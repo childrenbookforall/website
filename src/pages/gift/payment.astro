@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <div class="container">
+        <h2>You can pay for the gift here</h2>
+        <div class="payment-info">
+            <span id="name">Children's Book For All</span>
+            <span id="phone">+91-9599944055</span>
+            <img
+                width="200"
+                src="https://ik.imagekit.io/ty6gikkxo/QRCode.png?updatedAt=1738804372416"
+                alt="UPI QR code"
+            />
+            <span id="upi-id">ralli.arushi12@okaxis</span>
+        </div>
+        <div class="confirmation-buttons">
+            <button onclick="window.location.href='/gift/thanks'">I've contributed</button>
+        </div>
+        
+    </div>
+</Layout>
+<style>
+    .container{
+        max-width: 600px;
+        margin: auto;
+    }
+    h2 {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid lightgray;
+        margin-bottom: 2rem;
+        font-weight: normal;
+    }
+
+    span {
+        display: block;
+    }
+    .payment-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    #name {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    #phone {
+        font-size: 1rem;
+    }
+    #upi-id {
+        color: black;
+    }
+    button{
+        display: block;
+        margin: auto;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem
+    }
+    p{
+        width: 80%;
+        margin: auto;
+        margin-top: 1.5rem;
+        color: grey;
+    }
+    .confirmation-buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+    a{
+        color: grey;
+        margin-bottom: 2rem;
+    }
+</style>
