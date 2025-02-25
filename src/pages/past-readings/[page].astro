@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths({paginate}: any) {
     const readings = await getCollection("pastReadings");
+    readings.sort((a,b) => (b.data.date.getTime() - a.data.date.getTime()))
     return paginate(readings, { pageSize: 12 });
 }
 const { page }: any = Astro.props;
