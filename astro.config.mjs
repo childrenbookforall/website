@@ -11,5 +11,9 @@ import icon from 'astro-icon';
 export default defineConfig({
   integrations: [db(), icon()],
   output: 'server',
-  adapter: netlify()
+  adapter: netlify(),
+  vite: {
+    build: {
+      assetsInlineLimit: 0
+    }},
 });

@@ -8,6 +8,7 @@ const { date, time, location } = Astro.props;
     <div class="date">
         <span id="date-num">{date.date}</span>
         <span id="month">{date.month}</span>
+        <span id="year">{date.year}</span>
     </div>
     <div class="time">
         <span id="day">{date.day}</span>
@@ -57,6 +58,10 @@ const { date, time, location } = Astro.props;
         text-transform: uppercase;
         color: gray;
         font-size: 0.75rem;
+    }
+    #year{
+        font-size: 0.75rem;
+        margin-top: 0;
     }
     #time{
         font-weight: 600;
