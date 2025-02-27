@@ -3,6 +3,8 @@ import MemberSignUp from "../../components/MemberSignUp.astro";
 import Layout from "../../layouts/Layout.astro";
 import UpcomingReadings from "../../components/UpcomingReadings.astro";
 import { actions } from "astro:actions";
+import Gallery from "../../components/Gallery.astro";
+import { Icon } from "astro-icon/components";
 
 const result = Astro.getActionResult(actions.member.addMember);
 
@@ -28,8 +30,19 @@ if (actionError){
       </h1>
       <p>
         We read children's books, <em>in-person</em> as well as <em>online</em>, with all ages from
-        a <em>psycho-socio-emotional</em> lens
+        a <em class="dashed">psycho-socio-emotional</em> lens
+        <dialog id="definition">
+          <div id="container">
+            <div id="close">
+              <Icon name="ic:baseline-close" color="black" size={30}/>
+            </div>
+            <h3>psycho-socio-emotional</h3>
+            <hr>
+            <p>Individual well being is dependent on psychological (mental processes), sociological (in relation to others in the society) and emotional (recognising and managing feelings) health. We do children's book readings to bring out all these three aspects.</p>
+          </div>
+        </dialog>
       </p>
+      
       <div id="social-media">
         <a href="https://www.instagram.com/childrensbookforall/"><img src="https://ik.imagekit.io/ty6gikkxo/instagram.svg?updatedAt=1737934951830" alt="Instagram Link"></a>
         <a href="mailto:childrensbookforall@gmail.com"><img width=45 src="https://ik.imagekit.io/ty6gikkxo/mail.svg?updatedAt=1737934952236" alt="Mail Link"></a>
@@ -42,8 +55,19 @@ if (actionError){
     </div>
   </main>
   <UpcomingReadings/>
+  <Gallery/>
 </Layout>
-
+<script>
+  const dialog = document.querySelector('dialog');
+  const dashed = document.querySelector('.dashed');
+  const closeBtn = document.querySelector('#close');
+  dashed?.addEventListener('click', ()=>{
+    dialog?.showModal();
+  })
+  closeBtn?.addEventListener('click', ()=>{
+    dialog?.close();
+  })
+</script>
 <style>
   body{
     width: 100%;
@@ -89,4 +113,29 @@ if (actionError){
         text-align: left;
         margin-bottom: 1rem;
     }
+  .dashed{
+    text-decoration: underline dashed;
+    text-underline-offset: 0.5rem;
+    cursor: help;
+  }
+  dialog{
+    padding: 1.5rem;
+    margin: auto;
+  }
+  dialog hr{
+    margin: 0;
+  }
+  dialog h3{
+    font-size: 1.5rem;
+  }
+  dialog p{
+    font-size: 1rem !important;
+  }
+  dialog div{
+    float: right;
+  }
+  #close:hover{
+    background-color: lightgray;
+    padding-bottom: 0;
+  }
 </style>
