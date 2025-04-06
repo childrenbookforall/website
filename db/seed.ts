@@ -7,7 +7,7 @@ export default async function() {
 		email: "rajeevmyname@gmail.com", 
 		phone: "+91-7042457421",
 		contribution: 100,
-		readingDate: new Date("2025-01-12")
+		readingDate: new Date("2025-01-12"),
 	 },
 	 {
 		name: "Arushi Ralli", 
@@ -41,7 +41,7 @@ export default async function() {
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
 			}],
-		tags: "grief, loneliness, friendship"
+		tags: "grief, loneliness, friendship",
 	},
 	{
 		id: 2,
@@ -65,7 +65,8 @@ export default async function() {
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
 			}],
-		tags: "grief, loneliness, friendship"
+		tags: "grief, loneliness, friendship",
+		goLive: true
 	}
   ])
 }

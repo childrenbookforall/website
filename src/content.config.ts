@@ -35,8 +35,27 @@ const communityMembers = defineCollection({
             url: z.string(),
             alt: z.string()
           }),
-        date: z.string()
+        date: z.string(),
+        order: z.number()
     })
 });
 
-export const collections = {pastReadings, communityMembers}
+const activities = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.md', base: "./src/activities/" }),
+    schema: z.object({
+        title: z.string(),
+        startDate: z.date(),
+        lastUpdatedDate: z.date(),
+        description: z.string(),
+        location: z.string(),
+        owner: z.object({
+            name: z.string(),
+            image: z.string()
+        }),
+        image: z.object({
+            url: z.string(),
+            alt: z.string()
+          }),
+    })
+})
+export const collections = {pastReadings, communityMembers, activities}

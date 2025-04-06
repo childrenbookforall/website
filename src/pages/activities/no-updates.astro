@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components";
+// import '../styles/mvp.css'
+import Layout from "../../layouts/Layout.astro"
+---
+
+<Layout>
+        <section>
+            <aside>
+                <h2>
+                    <Icon name="ic:baseline-error" color="red" size={30}/>
+                    <span>No updates yet</span>
+                </h2>
+                <p>We do not have any updates for this activity yet.</p>
+            </aside>
+        </section>
+        <section>
+            <a href="/past-readings" data-astro-reload>Back</a>
+        </section>
+</Layout>
+<style>
+    h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    p{
+        text-align: center;
+        font-size: 1.25rem;
+    }
+</style>
+

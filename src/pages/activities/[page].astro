@@ -1,0 +1,73 @@
+---
+export const prerender = true;
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths({ paginate }: any) {
+    const activities = await getCollection("activities");
+    activities.sort(
+        (a, b) =>
+            b.data.lastUpdatedDate.getTime() - a.data.lastUpdatedDate.getTime(),
+    );
+    return paginate(activities, { pageSize: 6 });
+}
+const { page }: any = Astro.props;
+import Layout from "../../layouts/Layout.astro";
+import Pagination from "@philnash/astro-pagination";
+import ActivityCard from "../../components/ActivityCard.astro";
+---
+
+<Layout>
+    <header>
+        <h2>Activities</h2>
+        <p>Activities from <em>CBA community</em></p>
+    </header>
+    <section>
+        {
+            page.data.map((activity: any) => {
+                return (
+                    <ActivityCard
+                        activity={activity.data}
+                        url={`/activities/${activity.id}`}
+                    />
+                );
+            })
+        }
+    </section>
+    {
+        page.lastPage > 1 && (
+            <div class="pagination">
+                <Pagination
+                    page={page}
+                    urlPattern={"/activities/{}"}
+                    windowSize={3}
+                    showFirstLast={false}
+                />
+            </div>
+        )
+    }
+</Layout>
+
+<style>
+    section {
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    header {
+        margin-top: 1rem;
+        padding-top: 0rem;
+    }
+
+    header h2 {
+        font-size: 2rem;
+        margin: 0rem;
+        padding: 0rem;
+    }
+    header p {
+        margin-top: 0rem;
+        font-size: 1.2rem;
+    }
+    .pagination {
+        display: flex;
+        justify-content: center;
+    }
+</style>

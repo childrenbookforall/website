@@ -7,6 +7,7 @@ image:
     url: "https://ik.imagekit.io/ty6gikkxo/facilitators/jyoti-rathi.jpeg?updatedAt=1740415621871"
     alt: "Photo of Manvi"
 date: "24 Feb 2025"
+order: 4
 ---
 *Small*, *colourful* books for children always looked *beautiful*, but I never picked those as the text felt less for me. The stories were written in simple language and I was a fluent reader, why should I read those when I have Murakami, Marx, Dostoevsky right?   
 

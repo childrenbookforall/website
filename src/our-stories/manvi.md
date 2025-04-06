@@ -7,6 +7,7 @@ image:
     url: "https://ik.imagekit.io/ty6gikkxo/manvi.png?updatedAt=1740298543010"
     alt: "Photo of Manvi"
 date: "22 Feb 2025"
+order: 4
 ---
 
 I have loved picture books since childhood. There was something *magical* about sitting in the school library, flipping through their pages, getting *lost* in their *colors*, their *words*, their *worlds*.

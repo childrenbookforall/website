@@ -1,12 +1,12 @@
 ---
 import ReadingCard from "./ReadingCard.astro";
-import { db, Readings, desc } from "astro:db";
+import { db, Readings, desc, eq } from "astro:db";
 
 const readings = await db
     .select()
     .from(Readings)
-    .orderBy(desc(Readings.date))
-    .limit(3);
+    .where(eq(Readings.goLive, true))
+    .orderBy(desc(Readings.date));
 
 const months = [
     "Jan",
@@ -27,8 +27,8 @@ const months = [
 // const currentMonth = months[today.getMonth()];
 // const currentYear = today.getFullYear();
 //  const today = readings[0].date.getDate();
- const currentMonth = months[readings[0].date.getMonth()];
- const currentYear = readings[0].date.getFullYear();
+const currentMonth = months[readings[0]?.date.getMonth()];
+const currentYear = readings[0]?.date.getFullYear();
 
 const displayFormattedDate = function (readingDate: Date) {
     const days = [
@@ -68,35 +68,44 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
 <section>
     <header>
         <h2>Upcoming Readings</h2>
-        <p>{`${currentMonth} ${currentYear}`}</p>
-    </header>
-    <div>
         {
-            readings
-                .slice(0)
-                .reverse()
-                .map((reading) => {
-                    return (
-                        <ReadingCard
-                            readingId={reading.id}
-                            title={reading.title}
-                            date={displayFormattedDate(reading.date)}
-                            time={displayFormattedTimings(
-                                reading.startTime,
-                                reading.endTime,
-                            )}
-                            bookCover={reading.bookCover}
-                            location={reading.location}
-                            tags={reading.tags?.split(',')}
-                        />
-                    );
-                })
+            currentMonth !== undefined ? (
+                <p>{`${currentMonth} ${currentYear}`}</p>
+            ) : (
+                <p />
+            )
         }
-    </div>
-    
+    </header>
+    {
+        readings.length === 0 ? (
+            <em>No Upcoming Readings</em>
+        ) : (
+            <div>
+                {readings
+                    .slice(0)
+                    .reverse()
+                    .map((reading) => {
+                        return (
+                            <ReadingCard
+                                readingId={reading.id}
+                                title={reading.title}
+                                date={displayFormattedDate(reading.date)}
+                                time={displayFormattedTimings(
+                                    reading.startTime,
+                                    reading.endTime,
+                                )}
+                                bookCover={reading.bookCover}
+                                location={reading.location}
+                                tags={reading.tags?.split(",")}
+                            />
+                        );
+                    })}
+            </div>
+        )
+    }
 </section>
 <style>
-    section{
+    section {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -104,7 +113,7 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
         width: 100%;
         margin: auto;
     }
-    section div{
+    section div {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

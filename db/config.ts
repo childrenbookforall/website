@@ -40,7 +40,8 @@ const Readings = defineTable({
     message: column.text({optional: true}),
     calendar: column.text(),
     facilitators: column.json(),
-    tags: column.text({optional: true})
+    tags: column.text({optional: true}),
+    goLive: column.boolean({default: false})
   }
 });
 
