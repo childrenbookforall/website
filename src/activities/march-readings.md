@@ -9,7 +9,7 @@ owner:
     image: '/small_logo.png'
 image:
     url: 'https://m.media-amazon.com/images/I/515m9BFABFL._AC_UY327_QL65_.jpg'
-    alt: 'Speech bubble with a pink heart'
+    alt: "Book cover for women's day reading"
 ---
 
 For the month of *March*, CBA has decided to do readings to celebrate *Women's Day*, *Maheema's birthday* and become more aware about *neurodivergence*.
