@@ -12,7 +12,7 @@ export const reading = {
           email: z.string().email(),
           phone: z.string().regex(phoneRegex),
           readingDate: z.coerce.date(),
-          contribution: z.number(),
+          contribution: z.number().gt(0),
         }),
         handler: async (input) => {
           const confirmation = {

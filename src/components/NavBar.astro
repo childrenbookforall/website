@@ -57,6 +57,16 @@ const currentpath = pathname.split("/")[1];
         </li>
         <li>
             <a
+                class={currentpath == "support-group" ? "active" : ""}
+                id="support-group"
+                href="/support-group"
+            >
+                <img src="/support.png" width="28" alt="Support Icon" />
+                Support Groups
+            </a>
+        </li>
+        <!-- <li>
+            <a
                 class={currentpath == "gift" ? "active" : ""}
                 id="gift"
                 href="/gift"
@@ -64,7 +74,7 @@ const currentpath = pathname.split("/")[1];
                 <img src="/gift.png" width="28" alt="Gift Icon" />
                 Gift a Children's Book
             </a>
-        </li>
+        </li> -->
     </ul>
 </div>
 

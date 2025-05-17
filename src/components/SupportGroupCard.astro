@@ -1,0 +1,84 @@
+---
+const { groupId, coverImage, date, time, sessionsCount, location, cost, frequency, description, tags } = Astro.props;
+
+import InfoCard from "./InfoCard.astro";
+---
+
+<!-- <a id='card' href=`/readings/${readingId}` data-astro-reload> -->
+    <aside>
+        <img src={coverImage} alt=`Cover page of the support group` />
+        <InfoCard
+            date={date}
+            time={time}
+            frequency={frequency}
+            sessionsCount={sessionsCount}
+            location={location}
+        />
+        <div class="tags">
+            {
+                tags.map((tag: any) => {
+                    return <sup>{tag.trim()}</sup>;
+                })
+            }
+        </div>
+        
+        <div class="register">
+            <div class="cost">
+                <em>Registration Cost</em>
+                <span>₹ {cost}</span>
+            </div>
+            <a href=`/support-group/${groupId}` data-astro-reload>
+                <b>Register</b>
+            </a>
+        </div>
+        
+    </aside>
+<!-- </a> -->
+
+<style>
+    aside{
+        padding: 0;
+        width: 460px;
+        /* min-width: 40%; */
+    }
+    aside img{
+        width: 100%;
+    }
+    a{
+        position: relative;
+        margin-bottom: 0rem;
+    }
+    .description{
+        padding: 0rem 1rem;
+        margin: 1rem;
+    }
+    .register{
+        display: flex;
+        gap: 2.5rem;
+        justify-content: center;
+        align-items: center;
+        /* margin-top: 1rem; */
+        /* width: fit-content; */
+    }
+    .register p{
+        width: fit-content;
+        font-size: 1.2rem;
+        /* border: 1px solid green */
+    }
+    .cost {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cost em{
+        font-size: 0.85rem;
+        color: slategray
+    }
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+</style>

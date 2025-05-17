@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { date, time, location, sessionsCount, frequency } = Astro.props;
+---
+
+<div class="reading-info">
+    <div class="date-card">
+        <em>Starts</em>
+        <div class="date">
+            <span id="date-num">{date.date}</span>
+            <span id="month">{date.month}</span>
+            <span id="year">{date.year}</span>
+        </div>
+    </div>
+    <div class="time">
+        <p></p>
+        <span>{sessionsCount} sessions</span>
+        <span id="day">{frequency}</span>
+        <span id="time">{time}</span>
+        <span id="location">
+            <Icon
+                name="ic:baseline-location-on"
+                color="#6cbfae"
+                is:inline
+                size={16}
+            />
+            {location}
+        </span>
+    </div>
+</div>
+
+<style>
+    .reading-info {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .date-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+    }
+    .date {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+    }
+    #date-num {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    #month {
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .time {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+    }
+    #day {
+        /* text-transform: uppercase; */
+        color: gray;
+        font-size: 0.75rem;
+    }
+    #year {
+        font-size: 0.75rem;
+        margin-top: 0;
+    }
+    #time {
+        /* font-weight: 600; */
+    }
+    #location {
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+        color: gray;
+        /* text-transform: uppercase; */
+        font-size: 0.9rem;
+    }
+</style>

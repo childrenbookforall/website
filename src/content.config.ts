@@ -58,4 +58,12 @@ const activities = defineCollection({
           }),
     })
 })
-export const collections = {pastReadings, communityMembers, activities}
+
+const sg_dsc = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.md', base: "./src/sg-dsc/" }),
+    schema: z.object({
+    
+    })
+})
+
+export const collections = {pastReadings, communityMembers, activities, sg_dsc}

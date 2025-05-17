@@ -1,4 +1,4 @@
-import { db, ReadingConfirmations, Readings } from 'astro:db';
+import { db, ReadingConfirmations, Readings, SupportGroups } from 'astro:db';
 
 export default async function() {
   await db.insert(ReadingConfirmations).values([
@@ -47,7 +47,7 @@ export default async function() {
 		id: 2,
 		title: "Ish",
 		bookCover: "https://m.media-amazon.com/images/I/61Dnp3FAowL._SL1000_.jpg",
-		date: new Date("2025-02-19"),
+		date: new Date("2025-05-19"),
 		startTime: 450,
 		endTime: 820,
 		location: "Offline",
@@ -66,7 +66,62 @@ export default async function() {
 				'profile_link': '/rajeev-jha',
 			}],
 		tags: "grief, loneliness, friendship",
-		goLive: true
+		goLive: false
+	}
+  ]);
+
+  await db.insert(SupportGroups).values([
+	{
+		id: 1,
+		title: "Happiness Support Group",
+		coverImage: "https://images.jdmagicbox.com/rep/b2b/new-year-greeting-card/new-year-greeting-card-10.jpg",
+		date: new Date("2025-07-19"),
+		sessionsCount: 12,
+		frequency: "Every Sunday",
+		startTime: 660,
+		endTime: 780,
+		location: "Online",
+		description: "happiness",
+		cost: 5000,
+		tags: "grief, sadness, community",
+		facilitators: [
+			{
+				'name': 'Arushi Ralli',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/arushi-ralli',
+			},
+			{
+				'name': 'Rajeev Ranjan Jha',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/rajeev-jha',
+			}],
+		goLive: false
+	},
+	{
+		id: 2,
+		title: "Grief Support Group",
+		coverImage: "https://images.jdmagicbox.com/rep/b2b/new-year-greeting-card/new-year-greeting-card-10.jpg",
+		date: new Date("2025-10-19"),
+		sessionsCount: 12,
+		frequency: "Every Sunday",
+		startTime: 660,
+		endTime: 780,
+		location: "Online",
+		description: "happiness",
+		cost: 5000,
+		tags: "grief, sadness, community",
+		facilitators: [
+			{
+				'name': 'Arushi Ralli',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/arushi-ralli',
+			},
+			{
+				'name': 'Rajeev Ranjan Jha',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/rajeev-jha',
+			}],
+		goLive: false
 	}
   ])
 }
