@@ -2,7 +2,7 @@
 import { actions, isInputError, isActionError } from "astro:actions";
 import "../styles/international-telephone-input.css";
 
-const { readingDate } = Astro.props;
+const { readingDate, goLive } = Astro.props;
 const today = new Date();
 
 
@@ -86,7 +86,8 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
     </fieldset>
 </form>
 <script src="../scripts/international-telephone-input.js"></script>
-<script define:vars={{ readingDate }}>
+<script define:vars={{ readingDate, goLive }}>
+
     const form = document.querySelector("form");
     const submitBtn = document.querySelector("#submit");
     form?.addEventListener("submit", () => {
@@ -97,7 +98,7 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
     const fieldset = document.querySelector("fieldset");
     const today = new Date();
     const reading_date = new Date(readingDate);
-    if(today > reading_date.setDate(reading_date.getDate()+ 1)){
+    if((today > reading_date.setDate(reading_date.getDate()+ 1) || !goLive)){
         document.querySelector('.alert').style.display = 'block';
         fieldset.setAttribute("disabled","");
     }

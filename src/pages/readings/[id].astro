@@ -28,7 +28,8 @@ const {
     description,
     message,
     calendar,
-    facilitators
+    facilitators,
+    goLive
 } = reading[0];
 
 Astro.cookies.set("_calendar", calendar, { maxAge: 3600, path: "/" });
@@ -95,7 +96,7 @@ if (actionError){
             facilitators={facilitators}
             message={message}
         />
-        <ConfirmParticipation readingDate={date} />
+        <ConfirmParticipation readingDate={date} goLive={goLive}/>
     </main>
 </Layout>
 <style>
