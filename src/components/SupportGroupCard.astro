@@ -23,10 +23,10 @@ import InfoCard from "./InfoCard.astro";
         </div>
         
         <div class="register">
-            <div class="cost">
-                <em>Registration Cost</em>
+            <!-- <div class="cost">
+                <em>Contribution</em>
                 <span>₹ {cost}</span>
-            </div>
+            </div> -->
             <a href=`/support-group/${groupId}` data-astro-reload>
                 <b>Register</b>
             </a>
@@ -43,6 +43,8 @@ import InfoCard from "./InfoCard.astro";
     }
     aside img{
         width: 100%;
+        border-top-left-radius: 0.6rem;
+        border-top-right-radius: 0.6rem;
     }
     a{
         position: relative;
@@ -55,8 +57,9 @@ import InfoCard from "./InfoCard.astro";
     .register{
         display: flex;
         gap: 2.5rem;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-around;
+        /* align-items: center; */
+        /* margin-left: 2.5rem; */
         /* margin-top: 1rem; */
         /* width: fit-content; */
     }
@@ -72,7 +75,7 @@ import InfoCard from "./InfoCard.astro";
         align-items: center;
     }
     .cost em{
-        font-size: 0.85rem;
+        font-size: 1rem;
         color: slategray
     }
     .tags {

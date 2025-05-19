@@ -74,8 +74,8 @@ export default async function() {
 	{
 		id: 1,
 		title: "Happiness Support Group",
-		coverImage: "https://images.jdmagicbox.com/rep/b2b/new-year-greeting-card/new-year-greeting-card-10.jpg",
-		date: new Date("2025-07-19"),
+		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/happyness.png?updatedAt=1747657790820",
+		date: new Date("2025-10-05"),
 		sessionsCount: 12,
 		frequency: "Every Sunday",
 		startTime: 660,
@@ -121,7 +121,7 @@ export default async function() {
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
 			}],
-		goLive: true
+		goLive: false
 	}
   ])
 }

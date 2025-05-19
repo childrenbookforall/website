@@ -1,5 +1,5 @@
 ---
-title: "CBA x Kamla Nehru College, University of Delhi x Rekhi Centre For Excellence For The Science Of Happiness, IIT Kharagpur"
+title: "CBA x Kamla Nehru College, University of Delhi x Rekhi Centre For Excellence in The Science Of Happiness, IIT Kharagpur"
 startDate: 2025-05-10
 lastUpdatedDate: 2025-05-10
 description: "CBA collaborated with Kamala Nehru College (University of Delhi) and the Rekhi Centre for Excellence in the Science of Happiness (IIT Kharagpur) to explore how children’s books can be meaningfully integrated into a Happiness Curriculum."

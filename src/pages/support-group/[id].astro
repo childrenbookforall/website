@@ -120,13 +120,15 @@ if (actionError) {
                 facilitators={facilitators}
                 sessionsCount={sessionsCount}
             />
+            
+            <div class="content">
+                <Content />
+            </div>
             <div class="register">
                 <div class="cost">
-                    <em>Registration Cost</em>
-                    <span>₹ {cost}</span>
+                    <em>Contribution for all 12 sessions : ₹{cost}</em>
                 </div>
             </div>
-            <Content />
             <div id="facilitators">
                 <h4>Facilitated By</h4>
                 <div>
@@ -146,6 +148,10 @@ if (actionError) {
     </main>
 </Layout>
 <style>
+    .info{
+        display: flex;
+        flex-direction: column;
+    }
     .info img {
         max-width: 480px;
         width: 100%;
@@ -206,5 +212,13 @@ if (actionError) {
     }
     .cost span{
         font-size: 1.1rem;
+    }
+    .content{
+        max-width: 520px;
+        margin: auto;
+        margin-top: 1.2rem
+    }
+    .register{
+        align-self: flex-start;
     }
 </style>
