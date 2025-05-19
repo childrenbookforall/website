@@ -23,7 +23,7 @@ const ReadingConfirmations = defineTable({
     confirmationDate: column.date({default: NOW}),
   },
   indexes: [
-    {on: ["email", "readingDate"], unique: true}
+    {on: ["email", "readingDate"], unique: false}
   ]
 });
 

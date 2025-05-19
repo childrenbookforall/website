@@ -17,7 +17,8 @@ import Layout from "../../layouts/Layout.astro";
         </div>
         <div class="confirmation-buttons">
             <button onclick=`window.location.href="/readings/add-to-calendar"`>I've contributed</button>
-            <a href="/readings/add-to-calendar">I will contribute later</a>
+            <p class="alert">We will send an invitation link for the reading after we receive your confirmation</p>
+            <!-- <a href="/readings/add-to-calendar">I will contribute later</a> -->
             <!-- <button onclick=`window.location.href="upi://pay?pa=ralli.arushi12@okaxis&pn=Children's%20Book%20For%20All"`>Contribute</button>
             <a href="/readings/add-to-calendar">I've contributed</a> -->
         </div>
@@ -82,5 +83,11 @@ import Layout from "../../layouts/Layout.astro";
     a{
         color: grey;
         margin-bottom: 2rem;
+    }
+    .alert{
+        text-align: center;
+        margin-top: 0;
+        color: red;
+        width: 360px;
     }
 </style>

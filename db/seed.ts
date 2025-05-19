@@ -66,7 +66,7 @@ export default async function() {
 				'profile_link': '/rajeev-jha',
 			}],
 		tags: "grief, loneliness, friendship",
-		goLive: false
+		goLive: true
 	}
   ])
 }
