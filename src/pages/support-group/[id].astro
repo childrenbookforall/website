@@ -1,11 +1,11 @@
 ---
 import { db, SupportGroups, eq } from "astro:db";
 import Layout from "../../layouts/Layout.astro";
-import ConfirmParticipation from "../../components/ConfirmParticipation.astro";
 import { actions } from "astro:actions";
 import InfoCard from "../../components/InfoCard.astro";
 import { getEntry, render } from "astro:content";
 import Facilitator from "../../components/Facilitator.astro";
+import SGConfirmParticipation from "../../components/SGConfirmParticipation.astro";
 
 const { id } = Astro.params;
 const groupId = Number(id);
@@ -33,13 +33,15 @@ const {
     frequency,
     facilitators,
     sessionsCount,
+    tags,
+    goLive
 }: any = group[0];
 
 const fileName = description;
 const post = await getEntry("sg_dsc", fileName);
 
 if (post === undefined) {
-  return Astro.redirect("/404");
+    return Astro.redirect("/404");
 }
 
 const { Content } = await render(post);
@@ -93,7 +95,7 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
     return formatTime(startTime).concat(" - ", formatTime(endTime));
 };
 
-const result = Astro.getActionResult(actions.reading.addConfirmation);
+const result = Astro.getActionResult(actions.support.addConfirmation);
 if (result && !result.error) {
     return Astro.redirect("/support-group/contribute");
 }
@@ -118,6 +120,12 @@ if (actionError) {
                 facilitators={facilitators}
                 sessionsCount={sessionsCount}
             />
+            <div class="register">
+                <div class="cost">
+                    <em>Registration Cost</em>
+                    <span>₹ {cost}</span>
+                </div>
+            </div>
             <Content />
             <div id="facilitators">
                 <h4>Facilitated By</h4>
@@ -134,16 +142,21 @@ if (actionError) {
                 </div>
             </div>
         </div>
-        <ConfirmParticipation readingDate={date} />
+        <SGConfirmParticipation startDate={date} groupId={groupId} cost={cost} goLive={goLive}/>
     </main>
 </Layout>
 <style>
-    .info img{
+    .info img {
         max-width: 480px;
         width: 100%;
         margin: auto;
-        margin-top: 0rem;
+        /* margin-top: 3rem; */
         padding: 0;
+    }
+    .info p{
+        width: max-content;
+        margin: auto;
+        margin-top: 1.5rem;
     }
     main {
         display: flex;
@@ -154,7 +167,7 @@ if (actionError) {
         gap: 0.5rem;
     }
     .hidden-label {
-        display: none;
+        display: nhttps://web.whatsapp.com/one;
     }
 
     #description {
@@ -173,5 +186,25 @@ if (actionError) {
         margin-top: 1rem;
         margin-bottom: 1rem;
         margin-right: auto;
+    }
+    .cost{
+        margin: auto;
+        /* border: 1px solid red; */
+        width: max-content;
+        margin-top: 1.5rem;
+    }
+    .cost em{
+        /* background-color: #344cb7; */
+        background-color: var(--color-secondary);
+        border-radius: 15px;
+        padding: 0.5rem 1rem;
+        margin-right: 0.5rem;
+        font-weight: 600;
+        font-style: normal;
+        color: white;
+        font-size: 0.9rem;
+    }
+    .cost span{
+        font-size: 1.1rem;
     }
 </style>

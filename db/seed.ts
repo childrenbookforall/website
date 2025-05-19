@@ -95,7 +95,7 @@ export default async function() {
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
 			}],
-		goLive: false
+		goLive: true
 	},
 	{
 		id: 2,
@@ -121,7 +121,7 @@ export default async function() {
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
 			}],
-		goLive: false
+		goLive: true
 	}
   ])
 }

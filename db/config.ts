@@ -23,7 +23,21 @@ const ReadingConfirmations = defineTable({
     confirmationDate: column.date({default: NOW}),
   },
   indexes: [
-    {on: ["email", "readingDate"], unique: true}
+    {on: ["email", "readingDate"], unique: false}
+  ]
+});
+
+const SGConfirmations = defineTable({
+  columns: {
+    name: column.text(),
+    email: column.text(),
+    phone: column.text(),
+    cost: column.number(),
+    groupId: column.number(),
+    confirmationDate: column.date({default: NOW}),
+  },
+  indexes: [
+    {on: ["email", "groupId"], unique: false}
   ]
 });
 
@@ -110,5 +124,5 @@ const CBAGift = defineTable({
 });
 
 export default defineDb({
-  tables: { ReadingConfirmations, Readings, SupportGroups, Members, SelfGift, LovedOneGift, CBAGift },
+  tables: { ReadingConfirmations, SGConfirmations, Readings, SupportGroups, Members, SelfGift, LovedOneGift, CBAGift },
 })
