@@ -74,7 +74,7 @@ export default async function() {
 	{
 		id: 1,
 		title: "Happiness Support Group",
-		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/happyness.png?updatedAt=1747657790820",
+		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/happyness2.png?updatedAt=1747673518781",
 		date: new Date("2025-10-05"),
 		sessionsCount: 12,
 		frequency: "Every Sunday",
@@ -121,7 +121,7 @@ export default async function() {
 				'profile_image': 'https://placehold.co/50',
 				'profile_link': '/rajeev-jha',
 			}],
-		goLive: false
+		goLive: true
 	}
   ])
 }
