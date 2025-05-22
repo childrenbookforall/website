@@ -74,7 +74,7 @@ export default async function() {
 	{
 		id: 1,
 		title: "Happiness Support Group",
-		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/happyness2.png?updatedAt=1747673518781",
+		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/happyness(1).png",
 		date: new Date("2025-10-05"),
 		sessionsCount: 12,
 		frequency: "Every Sunday",
@@ -83,7 +83,7 @@ export default async function() {
 		location: "Online",
 		description: "happiness",
 		cost: 5000,
-		tags: "grief, sadness, community",
+		tags: "positive psychology, well-being, community",
 		facilitators: [
 			{
 				'name': 'Arushi Ralli',
@@ -100,7 +100,7 @@ export default async function() {
 	{
 		id: 2,
 		title: "Grief Support Group",
-		coverImage: "https://images.jdmagicbox.com/rep/b2b/new-year-greeting-card/new-year-greeting-card-10.jpg",
+		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/grief2.png",
 		date: new Date("2025-10-19"),
 		sessionsCount: 12,
 		frequency: "Every Sunday",
@@ -109,7 +109,7 @@ export default async function() {
 		location: "Online",
 		description: "happiness",
 		cost: 5000,
-		tags: "grief, sadness, community",
+		tags: "navigating grief, healing, hope",
 		facilitators: [
 			{
 				'name': 'Arushi Ralli',
