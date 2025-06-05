@@ -30,11 +30,15 @@ const { Content } = await render(post);
         <span>{post.data.formattedDate}</span>
       </div>
       <Content />
+      <p class="ur">You can register for our upcoming readings <a href="/#upcoming-readings">here</a></p>
     </section>
   </main>
 </Layout>
 
 <style>
+  .ur{
+    margin-top: 0;
+  }
   .stories {
     max-width: 720px;
     margin: auto;
