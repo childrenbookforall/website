@@ -7,9 +7,11 @@ import netlify from '@astrojs/netlify';
 
 import icon from 'astro-icon';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [db(), icon()],
+  integrations: [db(), icon(), mdx()],
   output: 'server',
   adapter: netlify(),
   vite: {
@@ -17,3 +19,4 @@ export default defineConfig({
       assetsInlineLimit: 0
     }},
 });
+

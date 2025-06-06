@@ -2,7 +2,7 @@ import { glob } from "astro/loaders";
 import { z, defineCollection} from "astro:content";
 
 const pastReadings = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.md', base: "./src/past-readings/" }),
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/past-readings/" }),
     schema: z.object({
         title: z.string(),
         date: z.date(),
@@ -25,7 +25,7 @@ const pastReadings = defineCollection({
 });
 
 const communityMembers = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.md', base: "./src/our-stories/" }),
+    loader: glob({ pattern: '**/[^_]*.{md, mdx}', base: "./src/our-stories/" }),
     schema: z.object({
         name: z.string(),
         work: z.string(),
@@ -41,7 +41,7 @@ const communityMembers = defineCollection({
 });
 
 const activities = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.md', base: "./src/activities/" }),
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/activities/" }),
     schema: z.object({
         title: z.string(),
         startDate: z.date(),

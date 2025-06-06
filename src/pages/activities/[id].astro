@@ -11,7 +11,7 @@ const post = await getEntry("activities", id);
 if (post === undefined) {
   return Astro.redirect("/404");
 }
-if (!post.rendered?.html) return Astro.rewrite("/activities/no-updates");
+// if (!post.rendered?.html) return Astro.rewrite("/activities/no-updates");
 
 const { Content } = await render(post);
 
@@ -75,7 +75,7 @@ const displayFormattedDate = function (activityDate: Date) {
     font-size: 1.2rem;
     margin-bottom: 2rem;
   }
-  .content{
+  .content {
     margin: 0 1.2rem;
   }
   .activity h1 {
