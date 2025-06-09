@@ -2,19 +2,19 @@
 import { actions, isInputError, isActionError } from "astro:actions";
 import "../styles/international-telephone-input.css";
 
-const { readingDate, goLive } = Astro.props;
+const { groupId, goLive, cost, startDate } = Astro.props;
 const today = new Date();
 
 
-const result = Astro.getActionResult(actions.reading.addConfirmation);
+const result = Astro.getActionResult(actions.support.addConfirmation);
 const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
 // const actionError = isActionError(result?.error);
 ---
 
-<form method="POST" action={actions.reading.addConfirmation}>
+<form method="POST" action={actions.support.addConfirmation}>
     <fieldset>
         <h1>Confirm Your Participation</h1>
-        <p class="alert">This reading is closed</p>
+        <p class="alert">This support group is closed</p>
         <label for="name">Name</label>
         <input transition:persist required type="text" name="name" id="name" />
         {
@@ -61,33 +61,14 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
                 <span id="error">Please check your phone number again</span>
             )
         }
-        <label id="contribution-label" for="contribution"
-            >Amount you intend to contribute for the reading</label
-        >
-        <span class="input-symbol-rupee">
-            <input
-                transition:persist
-                required
-                type="number"
-                step="1"
-                name="contribution"
-                id="contribution"
-            />
-        </span>
-        {
-            inputErrors.contribution && (
-                <span style="margin-top: -1rem" id="error">
-                    A minimum contribution is needed to be able to register.
-                </span>
-            )
-        }
-        <input type="hidden" name="readingDate" value={readingDate} />
-        <input type="submit" id="submit" value="Send me an invite" />
+        <input type="hidden" name="groupId" value={groupId} />
+        <input type="hidden" name="cost" value={cost} />
+        <input type="hidden" name="startDate" value={startDate} />
+        <input type="submit" id="submit" value="Join the support group" />
     </fieldset>
 </form>
 <script src="../scripts/international-telephone-input.js"></script>
-<script define:vars={{ readingDate, goLive }}>
-
+<script define:vars={{ startDate, goLive }}>
     const form = document.querySelector("form");
     const submitBtn = document.querySelector("#submit");
     form?.addEventListener("submit", () => {
@@ -97,8 +78,8 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
     // logic for disabling the form if the date is passed
     const fieldset = document.querySelector("fieldset");
     const today = new Date();
-    const reading_date = new Date(readingDate);
-    if((today > reading_date.setDate(reading_date.getDate()+ 1) || !goLive)){
+    const reading_date = new Date(startDate);
+    if(today > reading_date.setDate(reading_date.getDate()+ 1) || !goLive){
         document.querySelector('.alert').style.display = 'block';
         fieldset.setAttribute("disabled","");
     }
@@ -154,5 +135,8 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
         top: 5px;
         content: "₹";
         left: 5px;
+    }
+    form{
+        margin-top: 0;
     }
 </style>

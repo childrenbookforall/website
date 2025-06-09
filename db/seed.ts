@@ -1,4 +1,4 @@
-import { db, ReadingConfirmations, Readings } from 'astro:db';
+import { db, ReadingConfirmations, Readings, SupportGroups } from 'astro:db';
 
 export default async function() {
   await db.insert(ReadingConfirmations).values([
@@ -66,6 +66,61 @@ export default async function() {
 				'profile_link': '/rajeev-jha',
 			}],
 		tags: "grief, loneliness, friendship",
+		goLive: false
+	}
+  ]);
+
+  await db.insert(SupportGroups).values([
+	{
+		id: 1,
+		title: "Happiness Support Group",
+		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/happyness(1).png",
+		date: new Date("2025-10-05"),
+		sessionsCount: 12,
+		frequency: "Every Sunday",
+		startTime: 660,
+		endTime: 780,
+		location: "Online",
+		description: "happiness",
+		cost: 5000,
+		tags: "positive psychology, well-being, community",
+		facilitators: [
+			{
+				'name': 'Arushi Ralli',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/arushi-ralli',
+			},
+			{
+				'name': 'Rajeev Ranjan Jha',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/rajeev-jha',
+			}],
+		goLive: true
+	},
+	{
+		id: 2,
+		title: "Grief Support Group",
+		coverImage: "https://ik.imagekit.io/ty6gikkxo/sg/grief2.png",
+		date: new Date("2025-10-19"),
+		sessionsCount: 12,
+		frequency: "Every Sunday",
+		startTime: 660,
+		endTime: 780,
+		location: "Online",
+		description: "happiness",
+		cost: 5000,
+		tags: "navigating grief, healing, hope",
+		facilitators: [
+			{
+				'name': 'Arushi Ralli',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/arushi-ralli',
+			},
+			{
+				'name': 'Rajeev Ranjan Jha',
+				'profile_image': 'https://placehold.co/50',
+				'profile_link': '/rajeev-jha',
+			}],
 		goLive: true
 	}
   ])

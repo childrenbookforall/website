@@ -1,0 +1,224 @@
+---
+import { db, SupportGroups, eq } from "astro:db";
+import Layout from "../../layouts/Layout.astro";
+import { actions } from "astro:actions";
+import InfoCard from "../../components/InfoCard.astro";
+import { getEntry, render } from "astro:content";
+import Facilitator from "../../components/Facilitator.astro";
+import SGConfirmParticipation from "../../components/SGConfirmParticipation.astro";
+
+const { id } = Astro.params;
+const groupId = Number(id);
+
+if (!Number.isInteger(groupId)) {
+    return Astro.redirect("/404");
+}
+const group = await db
+    .select()
+    .from(SupportGroups)
+    .where(eq(SupportGroups.id, groupId));
+
+if (group.length === 0) {
+    return Astro.redirect("/404");
+}
+
+const {
+    date,
+    startTime,
+    endTime,
+    location,
+    coverImage,
+    description,
+    cost,
+    frequency,
+    facilitators,
+    sessionsCount,
+    tags,
+    goLive
+}: any = group[0];
+
+const fileName = description;
+const post = await getEntry("sg_dsc", fileName);
+
+if (post === undefined) {
+    return Astro.redirect("/404");
+}
+
+const { Content } = await render(post);
+
+// Astro.cookies.set("_calendar", calendar, { maxAge: 3600, path: "/" });
+
+const displayFormattedDate = function (readingDate: Date) {
+    const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ];
+    const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const date = readingDate.getDate().toString();
+    const month = months[readingDate.getMonth()];
+    const year = readingDate.getFullYear().toString();
+    const day = days[readingDate.getDay()];
+
+    return { date: date, day: day, month: month, year: year };
+};
+
+const formatTime = function (time: number) {
+    const hour_24 = Math.floor(time / 60);
+    var minutes = time % 60;
+    const prefix = hour_24 > 12 ? "pm" : "am";
+    const hour_12 = hour_24 > 12 ? hour_24 - 12 : hour_24;
+    const hour_in_string = hour_12.toString();
+    const minutes_in_string =
+        minutes < 10 ? "0" + minutes.toString() : minutes.toString();
+    return hour_in_string.concat(":", minutes_in_string, " ", prefix);
+};
+
+const displayFormattedTimings = function (startTime: number, endTime: number) {
+    return formatTime(startTime).concat(" - ", formatTime(endTime));
+};
+
+const result = Astro.getActionResult(actions.support.addConfirmation);
+if (result && !result.error) {
+    return Astro.redirect("/support-group/contribute");
+}
+const actionError = result?.error?.status === 500;
+if (actionError) {
+    return Astro.redirect("/500");
+}
+---
+
+<Layout>
+    <main>
+        <div class="info">
+            <img src={coverImage} alt="Cover Image of the Support Group">
+            <InfoCard
+                date={displayFormattedDate(date)}
+                time={displayFormattedTimings(startTime, endTime)}
+                coverImage={coverImage}
+                location={location}
+                description={description}
+                cost={cost}
+                frequency={frequency}
+                facilitators={facilitators}
+                sessionsCount={sessionsCount}
+            />
+            
+            <div class="content">
+                <Content />
+            </div>
+            <div class="register">
+                <div class="cost">
+                    <em>Contribution for all 12 sessions : ₹{cost}</em>
+                </div>
+            </div>
+            <div id="facilitators">
+                <h4>Facilitated By</h4>
+                <div>
+                    {
+                        facilitators.map((facilitator: any) => (
+                            <Facilitator
+                                name={facilitator.name}
+                                profile_image={facilitator.profile_image}
+                                profile_link={facilitator.profile_link}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+        <SGConfirmParticipation startDate={date} groupId={groupId} cost={cost} goLive={goLive}/>
+    </main>
+</Layout>
+<style>
+    .info{
+        display: flex;
+        flex-direction: column;
+    }
+    .info img {
+        max-width: 480px;
+        width: 100%;
+        margin: auto;
+        /* margin-top: 3rem; */
+        padding: 0;
+    }
+    .info p{
+        width: max-content;
+        margin: auto;
+        margin-top: 1.5rem;
+    }
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .hidden-label {
+        display: nhttps://web.whatsapp.com/one;
+    }
+
+    #description {
+        padding: 0 1.5rem;
+    }
+    h4 {
+        text-align: center;
+        border-radius: 15px;
+        background-color: #344cb7;
+        color: white;
+        padding: 0.25rem 1rem;
+        display: inline-block;
+        font-size: 0.9rem;
+    }
+    #facilitators {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: auto;
+    }
+    .cost{
+        margin: auto;
+        /* border: 1px solid red; */
+        width: max-content;
+        margin-top: 1.5rem;
+    }
+    .cost em{
+        /* background-color: #344cb7; */
+        background-color: var(--color-secondary);
+        border-radius: 15px;
+        padding: 0.5rem 1rem;
+        margin-right: 0.5rem;
+        font-weight: 600;
+        font-style: normal;
+        color: white;
+        font-size: 0.9rem;
+    }
+    .cost span{
+        font-size: 1.1rem;
+    }
+    .content{
+        max-width: 520px;
+        margin: auto;
+        margin-top: 1.2rem
+    }
+    .register{
+        align-self: flex-start;
+    }
+</style>

@@ -27,6 +27,20 @@ const ReadingConfirmations = defineTable({
   ]
 });
 
+const SGConfirmations = defineTable({
+  columns: {
+    name: column.text(),
+    email: column.text(),
+    phone: column.text(),
+    cost: column.number(),
+    groupId: column.number(),
+    confirmationDate: column.date({default: NOW}),
+  },
+  indexes: [
+    {on: ["email", "groupId"], unique: false}
+  ]
+});
+
 const Readings = defineTable({
   columns: {
     id: column.number({primaryKey: true}),
@@ -39,6 +53,26 @@ const Readings = defineTable({
     description: column.text(),
     message: column.text({optional: true}),
     calendar: column.text(),
+    facilitators: column.json(),
+    tags: column.text({optional: true}),
+    goLive: column.boolean({default: false})
+  }
+});
+
+const SupportGroups = defineTable({
+  columns: {
+    id: column.number({primaryKey: true}),
+    title: column.text(),
+    coverImage: column.text(),
+    date: column.date(),
+    sessionsCount: column.number(),
+    frequency: column.text(),
+    startTime: column.number(),
+    endTime: column.number(),
+    location: column.text(),
+    description: column.text(),
+    cost: column.number(),
+    calendar: column.text({optional: true}),
     facilitators: column.json(),
     tags: column.text({optional: true}),
     goLive: column.boolean({default: false})
@@ -90,5 +124,5 @@ const CBAGift = defineTable({
 });
 
 export default defineDb({
-  tables: { ReadingConfirmations, Readings, Members, SelfGift, LovedOneGift, CBAGift },
+  tables: { ReadingConfirmations, SGConfirmations, Readings, SupportGroups, Members, SelfGift, LovedOneGift, CBAGift },
 })
