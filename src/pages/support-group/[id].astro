@@ -97,7 +97,7 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
 
 const result = Astro.getActionResult(actions.support.addConfirmation);
 if (result && !result.error) {
-    return Astro.redirect("/support-group/contribute");
+    return Astro.redirect("/support-group/confirmation");
 }
 const actionError = result?.error?.status === 500;
 if (actionError) {
@@ -125,9 +125,9 @@ if (actionError) {
                 <Content />
             </div>
             <div class="register">
-                <div class="cost">
+                <!-- <div class="cost">
                     <em>Contribution for all 12 sessions : ₹{cost}</em>
-                </div>
+                </div> -->
             </div>
             <div id="facilitators">
                 <h4>Facilitated By</h4>
