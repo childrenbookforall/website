@@ -1,0 +1,18 @@
+### *Thehraav* | ठहराव : A Support Group for holding Grief
+
+Grief is not a problem to be fixed. It is neither a disease to be cured. 
+Grief is an experience, emotion, a journey... it shifts and changes, like an amoeba - sometimes heavy, sometimes quiet.  
+
+We feel a need to rush it, end but what it needs is spaces and places to breathe, to be loud, sad, painful, big and exist. We need a way to easen and soften it for us so that we can carry all of it.  
+
+*Thehraav* is a children's book anchored support group where we hope for all of our grief to find gentle companionship, acknowledgement and community support.  Children's books are a true anchor in helping us sit, move, play, and cry through our loss. It also supports us in forming our own meaning of this life-altering experience that shook our realities.  
+
+With support from the lens of trauma-informed approach, this space welcomes you with your rawness, openness and vulnerabilities with care. In this journey, we hope children's books carry your grief while other people in the community gently hold space for you and for themselves. 
+
+Thank you for reading this through. I hope to see you in Thehraav. 
+
+<style>
+    p{
+        font-size: 1.2rem
+    }
+</style>
