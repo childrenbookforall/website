@@ -9,7 +9,7 @@ We feel a need to rush it, end but what it needs is spaces and places to breathe
 
 With support from the lens of trauma-informed approach, this space welcomes you with your rawness, openness and vulnerabilities with care. In this journey, we hope children's books carry your grief while other people in the community gently hold space for you and for themselves. 
 
-Thank you for reading this through. I hope to see you in Thehraav. 
+Thank you for reading this through. We hope to see you in Thehraav. 
 
 <style>
     p{
