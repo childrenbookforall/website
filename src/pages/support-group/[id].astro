@@ -34,7 +34,7 @@ const {
     facilitators,
     sessionsCount,
     tags,
-    goLive
+    goLive,
 }: any = group[0];
 
 const fileName = description;
@@ -108,7 +108,7 @@ if (actionError) {
 <Layout>
     <main>
         <div class="info">
-            <img src={coverImage} alt="Cover Image of the Support Group">
+            <img src={coverImage} alt="Cover Image of the Support Group" />
             <InfoCard
                 date={displayFormattedDate(date)}
                 time={displayFormattedTimings(startTime, endTime)}
@@ -120,14 +120,22 @@ if (actionError) {
                 facilitators={facilitators}
                 sessionsCount={sessionsCount}
             />
-            
+
             <div class="content">
                 <Content />
             </div>
             <div class="register">
-                <!-- <div class="cost">
-                    <em>Contribution for all 12 sessions : ₹{cost}</em>
-                </div> -->
+                {
+                    groupId !== 3 ? (
+                        <div class="cost">
+                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+4000} </em>
+                        </div>
+                    ) : (
+                        <div class="cost">
+                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+6000} </em>
+                        </div>
+                    )
+                }
             </div>
             <div id="facilitators">
                 <h4>Facilitated By</h4>
@@ -144,11 +152,16 @@ if (actionError) {
                 </div>
             </div>
         </div>
-        <SGConfirmParticipation startDate={date} groupId={groupId} cost={cost} goLive={goLive}/>
+        <SGConfirmParticipation
+            startDate={date}
+            groupId={groupId}
+            cost={cost}
+            goLive={goLive}
+        />
     </main>
 </Layout>
 <style>
-    .info{
+    .info {
         display: flex;
         flex-direction: column;
     }
@@ -159,7 +172,7 @@ if (actionError) {
         /* margin-top: 3rem; */
         padding: 0;
     }
-    .info p{
+    .info p {
         width: max-content;
         margin: auto;
         margin-top: 1.5rem;
@@ -190,13 +203,13 @@ if (actionError) {
         margin-bottom: 1rem;
         margin-right: auto;
     }
-    .cost{
+    .cost {
         margin: auto;
         /* border: 1px solid red; */
         width: max-content;
         margin-top: 1.5rem;
     }
-    .cost em{
+    .cost em {
         /* background-color: #344cb7; */
         background-color: var(--color-secondary);
         border-radius: 15px;
@@ -207,15 +220,15 @@ if (actionError) {
         color: white;
         font-size: 0.9rem;
     }
-    .cost span{
+    .cost span {
         font-size: 1.1rem;
     }
-    .content{
+    .content {
         max-width: 520px;
         margin: auto;
-        margin-top: 1.2rem
+        margin-top: 1.2rem;
     }
-    .register{
+    .register {
         align-self: flex-start;
     }
 </style>

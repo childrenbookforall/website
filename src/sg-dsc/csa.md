@@ -11,6 +11,8 @@ In this circle, we co-create safety - not all at once, but stitch by stitch, sto
 Like threads in fabric, we are different, and yet together, we form something strong. Something whole. Something sacred.
 
 Welcome to *Tana Bana*. We are so glad to have you. You belong here.
+
+If you have any questions, you can <a href="mailto:childrensbookforall@gmail.com">email</a> or <a href="https://www.instagram.com/childrensbookforall/">DM</a> us.
 <style>
     p{
         font-size: 1.2rem
