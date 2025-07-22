@@ -35,7 +35,7 @@ And here I am today, with picture books at the heart of my PhD, exploring how th
         color: gray;
     }
     em{
-        text-decoration: underline dashed;
+        /* text-decoration: underline dashed; */
         font-style: normal;
     }
 </style>

@@ -31,7 +31,7 @@ I started my journey of reading again with those *small*, *tiny*, *colourful* bo
         color: gray;
     }
     em{
-        text-decoration: underline dashed;
+        /* text-decoration: underline dashed; */
         font-style: normal;
     }
 </style>
