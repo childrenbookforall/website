@@ -8,8 +8,8 @@ owner:
     name: 'childrensbookforall'
     image: '/small_logo.png'
 image:
-    url: 'https://m.media-amazon.com/images/I/71ebrIochtL._AC_UY327_QL65_.jpg'
-    alt: 'Book cover for a Mommies Reading'
+    url: 'https://ik.imagekit.io/ty6gikkxo/flamingo.jpg?updatedAt=1748661384634'
+    alt: 'Book cover for Reading'
 ---
 
 For the month of June, CBA is reading to celebrate World Environment (and Oceans) Day, Father's Day and is reading a story of conflict-ridden Kashmir through the eyes of an adolescent girl.
@@ -36,12 +36,12 @@ Here are the details:
 
 ---
 
-**29 June 2025**  
-11:00 am - 1:00 pm  
+~~**29 June 2025**~~  
+~~11:00 am - 1:00 pm~~  
 
-*Is it the same for you?* -the book presents the picture of a conflict-ridden Kashmir through the eyes of an adolescent girl. 
+~~*Is it the same for you?* -the book presents the picture of a conflict-ridden Kashmir through the eyes of an adolescent girl.~~ 
 
-[Registration link](https://childrensbookforall.org/readings/15)
+~~[Registration link]~~
 
 <style>
     p img{

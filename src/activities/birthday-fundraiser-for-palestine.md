@@ -16,7 +16,7 @@ We did a special reading of the book "The Girl on the Roof and the Boy on the Be
 
 It was a beautiful and heart-felt reading. The story of the girl and boy's innocence, their shared grief and loss, their friendship and connection and their attempt to heal together - all touched our heart. 
 
-The reading helped us raise ₹21276. The amount was contributed to @10rupeeproject which raises funds for aid projects in Palestine.
+The reading helped us raise ₹21276. The amount was contributed to @10rupeecampaign which raises funds for aid projects in Palestine.
 
 ![Community reading "The Girl on the Roof and the Boy on the Beach"](https://ik.imagekit.io/ty6gikkxo/readings/tgb.jpeg)
 <span class="image-title">CBA Community reading the book "The Girl on the Roof and the Boy on the Beach"</span>

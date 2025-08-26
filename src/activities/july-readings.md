@@ -28,11 +28,17 @@ Here are the details:
 ---
 
 **20 July 2025**  
-11:00 am - 1:00 pm  
+~~11:00 am - 1:00 pm~~  
 
-*Akeli Chinti / अकेली चींटी* - is a story about what happens when we don't follow the path set for us. It is a story of non-conformity, self-discovery and trust. 
+~~*Akeli Chinti / अकेली चींटी* - is a story about what happens when we don't follow the path set for us. It is a story of non-conformity, self-discovery and trust.~~
 
-[Registration link](https://childrensbookforall.org/readings/17)
+~~[Registration link]~~
+
+**11:00 am - 1:00 pm** | **4:00 pm - 6:00 pm**
+
+*Is it the same for you?* - the book presents the picture of a conflict-ridden Kashmir through the eyes of an adolescent girl. 
+
+[Registration link](https://childrensbookforall.org/readings/15)
 
 ---
 

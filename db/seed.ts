@@ -112,8 +112,8 @@ export default async function() {
 		tags: "navigating grief, healing, hope",
 		facilitators: [
 			{
-				'name': 'Arushi Ralli',
-				'profile_image': 'https://placehold.co/50',
+				'name': 'Vandita Rungta',
+				'profile_image': '/',
 				'profile_link': '/arushi-ralli',
 			},
 			{

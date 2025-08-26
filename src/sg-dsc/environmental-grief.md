@@ -1,4 +1,4 @@
-### *Thehraav* | ठहराव : A Support Group for holding Grief
+### *Ghera* | घेरा : A Circle of Care for holding Environmental Grief
 
 Grief is not a problem to be fixed. It is neither a disease to be cured. 
 Grief is an experience, an emotion, a journey... it shifts and changes, like an amoeba - sometimes heavy, sometimes quiet.  

@@ -41,7 +41,7 @@ Here are the details:
 
 ~~*Some Secrets should never be kept* - to facilitate a sensitive discussion on *child sexual abuse*. The book safely explores the journey of being touched inappropriately and the nuances of safety and unsafety. The reading and discussion is facilitated by Nabonita S Banerjee and Arushi Ralli.~~
 
-~~[Registration link](https://childrensbookforall.org/readings/9)~~  
+~~[Registration link]~~  
 
 <style>
     p img{
