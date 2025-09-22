@@ -8,8 +8,8 @@ owner:
     name: 'childrensbookforall'
     image: '/small_logo.png'
 image:
-    url: 'https://m.media-amazon.com/images/I/515m9BFABFL._AC_UY327_QL65_.jpg'
-    alt: "Book cover for women's day reading"
+    url: 'https://m.media-amazon.com/images/I/716J9u7n0QL._AC_UY327_QL65_.jpg'
+    alt: "Book cover for teacher's day reading"
 ---
 
 For the month of September, CBA is reading to celebrate Teacher's Day, spread awareness on the occasion of World Suicide Prevention Month, celebrate the connection we have with ourselves and each other, and host a special fundraiser to support students in an Adivasi School from Kerala.
