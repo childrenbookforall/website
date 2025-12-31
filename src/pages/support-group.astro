@@ -6,7 +6,7 @@ import { db, SupportGroups, desc, eq } from "astro:db";
 const supportGroups = await db
     .select()
     .from(SupportGroups)
-    .where(eq(SupportGroups.goLive, true))
+    // .where(eq(SupportGroups.goLive, true))
     .orderBy(desc(SupportGroups.date));
 
     const months = [
@@ -87,7 +87,8 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
                                 frequency={group.frequency}
                                 description={group.description}
                                 cost={group.cost}
-                                tags={group.tags?.split(",")}/>
+                                tags={group.tags?.split(",")}
+                                goLive={group.goLive}/>
                             );
                         })}
                 </div>

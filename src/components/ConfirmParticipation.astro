@@ -8,6 +8,8 @@ const today = new Date();
 
 const result = Astro.getActionResult(actions.reading.addConfirmation);
 const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
+
+
 // const actionError = isActionError(result?.error);
 ---
 
@@ -61,19 +63,28 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
                 <span id="error">Please check your phone number again</span>
             )
         }
-        <label id="contribution-label" for="contribution"
-            >Amount you intend to contribute for the reading</label
-        >
-        <span class="input-symbol-rupee">
-            <input
-                transition:persist
-                required
-                type="number"
-                step="1"
-                name="contribution"
-                id="contribution"
-            />
-        </span>
+
+        {
+            (
+                <label id="contribution-label" for="contribution">Amount you intend to contribute for the reading</label>
+            )
+        }
+
+        {
+            (
+                <span class="input-symbol-rupee"> <input
+                    transition:persist
+                    required
+                    type="number"
+                    step="1"
+                    name="contribution"
+                    id="contribution"
+                />
+                </span>
+            )
+        }
+        
+        
         {
             inputErrors.contribution && (
                 <span style="margin-top: -1rem" id="error">

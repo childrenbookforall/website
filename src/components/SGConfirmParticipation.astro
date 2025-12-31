@@ -14,7 +14,7 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
 <form method="POST" action={actions.support.addConfirmation}>
     <fieldset>
         <h1>Let Us Know You're Interested</h1>
-        <p class="alert">This support group is closed</p>
+        <p class="alert">Registrations to this support group are now closed. Please fill this form if you would like to be intimated when we start another support group.</p>
         <label for="name">Name</label>
         <input transition:persist required type="text" name="name" id="name" />
         {
@@ -81,7 +81,7 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
     const reading_date = new Date(startDate);
     if(today > reading_date.setDate(reading_date.getDate()+ 1) || !goLive){
         document.querySelector('.alert').style.display = 'block';
-        fieldset.setAttribute("disabled","");
+        // fieldset.setAttribute("disabled","");
     }
 </script>
 <style>
@@ -101,6 +101,8 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
         color: red;
         display: none;
         margin-top: -1rem;
+        font-size: 0.95rem;
+        font-style:italic;
         /* margin: 0; */
     }
     #error {

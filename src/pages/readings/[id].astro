@@ -29,7 +29,7 @@ const {
     message,
     calendar,
     facilitators,
-    goLive
+    goLive,
 } = reading[0];
 
 Astro.cookies.set("_calendar", calendar, { maxAge: 3600, path: "/" });
@@ -75,7 +75,8 @@ const displayFormattedTimings = function (startTime: number, endTime: number) {
     return formatTime(startTime).concat(" - ", formatTime(endTime));
 };
 
-const result = Astro.getActionResult(actions.reading.addConfirmation);
+const result:any = Astro.getActionResult(actions.reading.addConfirmation);
+
 if (result && !result.error) {
     return Astro.redirect("/readings/contribute");
 }

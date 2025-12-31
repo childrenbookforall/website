@@ -8,7 +8,7 @@ owner:
     name: 'childrensbookforall'
     image: '/small_logo.png'
 image:
-    url: 'https://m.media-amazon.com/images/I/71cdzQOKkOL._AC_UY327_QL65_.jpg'
+    url: 'https://m.media-amazon.com/images/I/81LGGCZDnOL._SL1500_.jpg'
     alt: "Book cover for Mental Health Day Reading"
 ---
 
@@ -32,7 +32,7 @@ This Hindi reading is facilitated by Isha Anand and Bhawna Sanwal.
 **12 October 2025**  
 11:00 am - 1:00 pm  
 
-*What Feelings Do When No One's Looking* - an Inside Out journey of our feelings to celebrate Mental Health Awareness Day. 
+*Co-creating a children's book on feelings*- an Inside Out journey of our feelings to celebrate Mental Health Awareness Day. 
 
 The reading is facilitated by two therapists Vani S and Shalini Rao - both champions of Mental Health.
 
