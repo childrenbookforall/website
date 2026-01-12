@@ -1,7 +1,7 @@
 ---
 title: "CBA Readings for the month of January"
-startDate: 2026-12-05
-lastUpdatedDate: 2026-12-05
+startDate: 2026-01-05
+lastUpdatedDate: 2026-01-05
 description: "This January, CBA turns TWO! We are reading to build collective values of the community. We are also reading a hindi book that provokes discussion on feminism, patriarchy and self-identity."
 location: 'Online'
 owner:
