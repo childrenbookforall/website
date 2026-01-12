@@ -7,7 +7,7 @@ image:
     url: "https://ik.imagekit.io/ty6gikkxo/facilitators/swara.png?updatedAt=1741344405330"
     alt: "Photo of Swara"
 date: "05 Mar 2025"
-order: 2
+order: 6
 ---
 
 I am an *autistic* person, also with *anxiety*. I am a very *determined* person. I deal with *discrimination* and *ableism*, but I also don’t give up. Music, dancing, movies, TV shows, nature, food etc. gives me happiness. Any ableism or discrimination makes me *sad*. Being misunderstood for who I am makes me sad. I am generally a *sensitive* person. I feel very much even though I don’t really show it.  

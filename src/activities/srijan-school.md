@@ -61,4 +61,13 @@ p img{
     margin: auto;
     text-align: center
 }
+.quote-title{
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    color: gray;
+    width: 60%;
+    margin: auto;
+    text-align: center
+}
 </style>
