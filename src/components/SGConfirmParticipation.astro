@@ -14,7 +14,7 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
 <form method="POST" action={actions.support.addConfirmation}>
     <fieldset>
         <h1>Let Us Know You're Interested</h1>
-        <p class="alert">Registrations to this support group are now closed. Please fill this form if you would like to be intimated when we start another support group.</p>
+        {!goLive && <p class="alert">Registrations to this support group are now closed. Please fill this form if you would like to be intimated when we start another support group.</p>}
         <label for="name">Name</label>
         <input transition:persist required type="text" name="name" id="name" />
         {

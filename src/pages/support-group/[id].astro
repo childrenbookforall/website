@@ -126,13 +126,18 @@ if (actionError) {
             </div>
             <div class="register">
                 {
-                    groupId !== 3 ? (
+                    groupId === 3 ? (
+                        <div class="cost">
+                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+6000} </em>
+                        </div>
+                    ) : groupId === 4 ? (
                         <div class="cost">
                             <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+4000} </em>
                         </div>
-                    ) : (
+                    ):
+                    (
                         <div class="cost">
-                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+6000} </em>
+                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+3000} </em>
                         </div>
                     )
                 }

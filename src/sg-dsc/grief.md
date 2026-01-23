@@ -1,4 +1,5 @@
 ### *Thehraav* | ठहराव : A Support Group for holding Grief
+_**(This is our 3rd grief support group)**_
 
 Grief is not a problem to be fixed. It is neither a disease to be cured. 
 Grief is an experience, an emotion, a journey... it shifts and changes, like an amoeba - sometimes heavy, sometimes quiet.  
