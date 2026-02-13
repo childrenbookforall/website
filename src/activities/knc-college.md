@@ -40,7 +40,7 @@ Following the reading, participants engaged in a junk toy-making workshop. Using
 <span class="image-title">A purse fashioned out of a beer can and an old denim rag</span>
 
 ![A beautiful doll house made from discarded items](https://ik.imagekit.io/ty6gikkxo/knc/kno4.jpg?updatedAt=1746783182549)
-<span class="image-title">A beautiul doll house made from discarded items</span>
+<span class="image-title">A beautiful doll house made from discarded items</span>
 
 We closed the session with a web of trust activity, symbolizing the journey of trusting oneself, others, and the community at large. We also received powerful feedback -  “children’s books are not only for children”. This final moment highlighted the core essence of the Happiness Curriculum: that joy and connection often arise when we feel seen, heard, and held within a trusting space in a community. 
 
