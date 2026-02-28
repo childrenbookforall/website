@@ -1,4 +1,4 @@
-import { db, ReadingConfirmations, Readings, SupportGroups } from 'astro:db';
+import { db, ReadingConfirmations, Readings, SupportGroups, Testimonials } from 'astro:db';
 
 export default async function() {
   await db.insert(ReadingConfirmations).values([
@@ -150,4 +150,21 @@ export default async function() {
 		goLive: true
 	}
   ])
+  await db.insert(Testimonials).values([
+    {
+        "groupId": 3,
+        "feedback": "Its somewhere beyond words because it was never a thought that the kindness, compassion of the members of the group and discussions and lived experiences may feel so warm and supportive in the context of solidarity and support to response to a childhood trauma. I feel so many wounds got seen and nursed through this space!",
+        "groupName": "Tana Bana"
+    },
+    {
+        "groupId": 3,
+        "feedback": "Like the warmth of fire at night in the middle of a forest. The abused part of me that will always be a lot for the world that i live in, actually found a place where it belongs. I love that I have a space now for me to show up with this part of myself and fully experience life as a survivor.",
+        "groupName":"Tana Bana"
+    },
+    {
+        "groupId": 2,
+        "feedback": "It's the first time I felt the healing and goodness of being part of a group where you can just .. be. I can talk about the deepest painful parts of my life and feel held, supported and empathised. I don't have to over explain. I love it. It inspires me to hold myself with the same level of care outside the sessions. I'm still melting.",
+        "groupName":"Tana Bana"
+    }
+])
 }

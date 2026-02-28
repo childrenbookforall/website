@@ -6,6 +6,7 @@ import InfoCard from "../../components/InfoCard.astro";
 import { getEntry, render } from "astro:content";
 import Facilitator from "../../components/Facilitator.astro";
 import SGConfirmParticipation from "../../components/SGConfirmParticipation.astro";
+import TestimonialCards from "../../layouts/TestimonialCards.astro";
 
 const { id } = Astro.params;
 const groupId = Number(id);
@@ -163,6 +164,7 @@ if (actionError) {
             cost={cost}
             goLive={goLive}
         />
+        <TestimonialCards id={groupId}/>
     </main>
 </Layout>
 <style>

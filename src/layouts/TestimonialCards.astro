@@ -1,0 +1,43 @@
+---
+import { db, Testimonials, eq } from "astro:db";
+
+const { id } = Astro.props;
+
+const testimonials = await db
+    .select()
+    .from(Testimonials)
+    .where(eq(Testimonials.groupId, id));
+
+console.log(testimonials);
+---
+
+{
+    testimonials.length === 0 ? (
+        <div />
+    ) : (
+        <section>
+            <header>
+                <h2>Testimonials 🌈</h2>
+            </header>
+                {testimonials.map((testimonial) => {
+                    return (
+                        <aside>
+                            <p>
+                                "{testimonial.feedback}"
+                            </p>
+                            <b>
+                                - A <em>{testimonial.groupName}</em> Participant
+                            </b>
+                        </aside>
+                    );
+                })}
+        </section>
+    )
+}
+
+<style>
+    header{
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+</style>

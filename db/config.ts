@@ -41,6 +41,17 @@ const SGConfirmations = defineTable({
   ]
 });
 
+const Testimonials = defineTable({
+  columns: {
+    groupId: column.number(),
+    feedback: column.text(),
+    groupName: column.text()
+  },
+  indexes: [
+    {on: ["groupId"], unique: false}
+  ]
+});
+
 const Readings = defineTable({
   columns: {
     id: column.number({primaryKey: true}),
@@ -124,5 +135,5 @@ const CBAGift = defineTable({
 });
 
 export default defineDb({
-  tables: { ReadingConfirmations, SGConfirmations, Readings, SupportGroups, Members, SelfGift, LovedOneGift, CBAGift },
+  tables: { ReadingConfirmations, SGConfirmations, Testimonials, Readings, SupportGroups, Members, SelfGift, LovedOneGift, CBAGift },
 })
