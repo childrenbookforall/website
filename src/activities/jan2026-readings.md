@@ -9,7 +9,7 @@ owner:
     image: '/small_logo.png'
 image:
     url: 'https://m.media-amazon.com/images/I/71jCL3sTrwL._AC_UY327_QL65_.jpg'
-    alt: "Book cover for Cancer Awareness"
+    alt: "Book cover for What We'll Build"
 ---
 
 This January, CBA turns **TWO!** As we celebrate, we’re reading together to strengthen our shared community values. We are also reading a Hindi book that sparks discussion on feminism, patriarchy and self-identity.
