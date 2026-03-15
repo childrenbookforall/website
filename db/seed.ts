@@ -133,7 +133,7 @@ export default async function() {
 		startTime: 660,
 		endTime: 780,
 		location: "Online",
-		description: "csa",
+		description: "circle-of-care",
 		cost: 36000,
 		tags: "navigating grief, healing, hope",
 		facilitators: [
