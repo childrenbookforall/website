@@ -3,6 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import LoadingIndicator from "astro-loading-indicator/component";
 import "../styles/mvp.css";
 import Nav from "../components/Nav.astro";
+// import NotificationBar from "../components/NotificationBar.astro";
 import { SEO } from "astro-seo";
 ---
 
@@ -47,8 +48,14 @@ import { SEO } from "astro-seo";
 		<title>Children's Book For All</title>
 		<ClientRouter />
 		<LoadingIndicator color="#7e22ce" />
+		<script is:inline>
+			if (localStorage.getItem("notification-dismissed") === "true") {
+				document.documentElement.style.setProperty("--notification-bar-display", "none");
+			}
+		</script>
 	</head>
 	<body>
+		<!-- <NotificationBar /> -->
 		<Nav />
 		<slot />
 	</body>

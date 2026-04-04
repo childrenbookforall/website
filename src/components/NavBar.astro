@@ -82,7 +82,7 @@ const currentpath = pathname.split("/")[1];
     document.addEventListener("astro:page-load", () => {
         const navigation = document.querySelector<HTMLElement>("#navigation");
 
-        const menuToggle = document.querySelector('#menu-toggle');
+        const menuToggle = document.querySelector('#menu');
         menuToggle?.addEventListener("click",()=>{
             document.body.classList.toggle('nav-open');
             navigation?.classList.toggle("show");
@@ -97,7 +97,7 @@ const currentpath = pathname.split("/")[1];
     #menu {
         background: none;
         color: black;
-        padding: 0;
+        padding: 0.75rem;
         border: none;
         margin: 0;
     }

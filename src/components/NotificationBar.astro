@@ -1,0 +1,65 @@
+---
+---
+<div class="notification-bar" id="notification-bar">
+    <span>📢 This is a placeholder notification message. Stay tuned for updates!</span>
+    <button class="close-btn" id="notification-close" aria-label="Dismiss notification">✕</button>
+</div>
+
+<script>
+    // Before each page swap, remove the bar from the incoming document
+    // so it never gets painted if already dismissed.
+    document.addEventListener("astro:before-swap", (e) => {
+        if (localStorage.getItem("notification-dismissed") === "true") {
+            e.newDocument.getElementById("notification-bar")?.remove();
+        }
+    });
+
+    // Handle initial page load (no swap on first visit).
+    function initNotificationBar() {
+        const bar = document.getElementById("notification-bar");
+        if (!bar) return;
+
+        if (localStorage.getItem("notification-dismissed") === "true") {
+            bar.remove();
+            return;
+        }
+
+        const btn = document.getElementById("notification-close");
+        btn?.addEventListener("click", () => {
+            bar.remove();
+            localStorage.setItem("notification-dismissed", "true");
+        });
+    }
+
+    document.addEventListener("astro:page-load", initNotificationBar);
+</script>
+
+<style>
+    .notification-bar {
+        display: var(--notification-bar-display, flex);
+        position: relative;
+        width: 100%;
+        background-color: #dc2626;
+        color: white;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        box-sizing: border-box;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: black;
+        cursor: pointer;
+        font-size: 0.85rem;
+        padding: 0;
+        line-height: 1;
+        position: absolute;
+        right: 1rem;
+    }
+</style>
