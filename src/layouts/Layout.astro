@@ -3,11 +3,13 @@ import { ClientRouter } from "astro:transitions";
 import LoadingIndicator from "astro-loading-indicator/component";
 import "../styles/mvp.css";
 import Nav from "../components/Nav.astro";
-// import NotificationBar from "../components/NotificationBar.astro";
+import NotificationBar from "../components/NotificationBar.astro";
 import { SEO } from "astro-seo";
 
 interface Props {
 	ogImage?: string;
+	ogImageWidth?: number;
+	ogImageHeight?: number;
 	ogTitle?: string;
 	ogDescription?: string;
 	hideNotificationBar?: boolean;
@@ -15,6 +17,8 @@ interface Props {
 
 const {
 	ogImage = "https://ik.imagekit.io/ty6gikkxo/logo.png?updatedAt=1737934952181",
+	ogImageWidth = 1200,
+	ogImageHeight = 630,
 	ogTitle = "Children's Book For All",
 	ogDescription = "An evocative space for play, wonder, joy and community",
 	hideNotificationBar = false,
@@ -37,8 +41,13 @@ const {
 			openGraph={{
 				basic: {
 					title: ogTitle,
-					type: "Website",
+					type: "website",
 					image: ogImage,
+				},
+				image: {
+					width: ogImageWidth,
+					height: ogImageHeight,
+					alt: ogTitle,
 				},
 			}}
 			extend={{
@@ -68,7 +77,7 @@ const {
 		</script>
 	</head>
 	<body>
-		<!-- {!hideNotificationBar && <NotificationBar />} -->
+		{!hideNotificationBar && <NotificationBar />}
 		<Nav />
 		<slot />
 	</body>

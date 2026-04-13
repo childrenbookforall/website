@@ -1,5 +1,5 @@
 ---
-name: 'Sonal Sanghmitra'
+name: 'Sonal Sanghamitra'
 work: 'Therapist'
 description: "Rediscovering my love for reading through children’s books."
 location: "Delhi (India)"
