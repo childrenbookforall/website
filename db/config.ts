@@ -134,6 +134,15 @@ const CBAGift = defineTable({
   }
 });
 
+const AwardRegistrations = defineTable({
+  columns: {
+    name: column.text(),
+    email: column.text({primaryKey: true}),
+    phone: column.text(),
+    date: column.date({default: NOW})
+  }
+});
+
 export default defineDb({
-  tables: { ReadingConfirmations, SGConfirmations, Testimonials, Readings, SupportGroups, Members, SelfGift, LovedOneGift, CBAGift },
+  tables: { ReadingConfirmations, SGConfirmations, Testimonials, Readings, SupportGroups, Members, SelfGift, LovedOneGift, CBAGift, AwardRegistrations },
 })

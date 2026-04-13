@@ -1,0 +1,79 @@
+---
+import { actions, isInputError } from "astro:actions";
+import '../styles/international-telephone-input.css';
+
+const result = Astro.getActionResult(actions.award.registerForAward);
+const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
+---
+
+<form method="POST" action={actions.award.registerForAward}>
+    <h2>Register for submission guidelines</h2>
+    <p class="subtext">We will send the full submission guidelines to your email once you register.</p>
+    <label for="name">Name</label>
+    <input transition:persist required type="text" name="name" id="name" />
+    {inputErrors.name && <span class="error">Please check your name again</span>}
+    <label for="email">Email</label>
+    <input transition:persist required type="email" name="email" id="email" />
+    {inputErrors.email && <span class="error">Please check your email again</span>}
+    <label for="phone">Phone</label>
+    <div transition:persist class="iti">
+        <input transition:persist required type="tel" name="phone" id="phone" />
+    </div>
+    {inputErrors.phone && <span class="error">Please check your phone number again</span>}
+    <input type="submit" id="submit" value="Send me the guidelines" />
+    <p class="note">Registering does not commit you to applying.</p>
+</form>
+<script src="../scripts/international-telephone-input.js"></script>
+<script>
+    const form = document.querySelector('form');
+    const submitBtn = document.querySelector('#submit');
+    form?.addEventListener('submit', () => {
+        submitBtn?.setAttribute("disabled", "");
+    });
+</script>
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        max-width: 350px;
+        padding: 1.5rem 2rem;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: white;
+    }
+    form h2 {
+        font-size: 1.4rem;
+        margin: 0 0 0.25rem;
+    }
+    .subtext {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 0 0 0.75rem;
+    }
+    .note {
+        font-size: 0.8rem;
+        color: #999;
+        margin: 0.25rem 0 0;
+        text-align: center;
+    }
+    .error {
+        color: red;
+        display: block;
+        font-size: 0.85rem;
+        margin-top: -0.25rem;
+    }
+    label {
+        font-weight: 500;
+    }
+    .iti {
+        position: relative;
+        display: inline-block;
+    }
+    #phone {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 52px;
+        padding-right: 6px;
+    }
+</style>
