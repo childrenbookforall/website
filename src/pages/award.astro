@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <main>
+        <div class="info">
+            <img src="https://ik.imagekit.io/ty6gikkxo/cbaAward.png" alt="Children's Book for All Award Fund" />
+            <h1>Children's Book for All Award Fund 2026</h1>
+            <span>For stories that deserve to be told</span>
+            <div class="content">
+            </div>
+            <div class="register">
+                
+            </div>
+            <div id="facilitators">
+                
+            </div>
+        </div>
+    </main>
+</Layout>
+<style>
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+    .info img {
+        max-width: 480px;
+        width: 100%;
+        margin: auto;
+        /* margin-top: 3rem; */
+        padding: 0;
+    }
+    .info p {
+        width: max-content;
+        margin: auto;
+        margin-top: 1.5rem;
+    }
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    #description {
+        padding: 0 1.5rem;
+    }
+    h4 {
+        text-align: center;
+        border-radius: 15px;
+        background-color: #344cb7;
+        color: white;
+        padding: 0.25rem 1rem;
+        display: inline-block;
+        font-size: 0.9rem;
+    }
+    #facilitators {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: auto;
+    }
+    .cost {
+        margin: auto;
+        /* border: 1px solid red; */
+        width: max-content;
+        margin-top: 1.5rem;
+    }
+    .cost em {
+        /* background-color: #344cb7; */
+        background-color: var(--color-secondary);
+        border-radius: 15px;
+        padding: 0.5rem 1rem;
+        margin-right: 0.5rem;
+        font-weight: 600;
+        font-style: normal;
+        color: white;
+        font-size: 0.9rem;
+    }
+    .cost span {
+        font-size: 1.1rem;
+    }
+    .content {
+        max-width: 520px;
+        margin: auto;
+        margin-top: 1.2rem;
+    }
+    .register {
+        align-self: flex-start;
+    }
+</style>

@@ -5,6 +5,18 @@ import "../styles/mvp.css";
 import Nav from "../components/Nav.astro";
 // import NotificationBar from "../components/NotificationBar.astro";
 import { SEO } from "astro-seo";
+
+interface Props {
+	ogImage?: string;
+	ogTitle?: string;
+	ogDescription?: string;
+}
+
+const {
+	ogImage = "https://ik.imagekit.io/ty6gikkxo/logo.png?updatedAt=1737934952181",
+	ogTitle = "Children's Book For All",
+	ogDescription = "An evocative space for play, wonder, joy and community",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -18,13 +30,13 @@ import { SEO } from "astro-seo";
 			href="https://ik.imagekit.io/ty6gikkxo/favicon.svg?updatedAt=1737934952187"
 		/>
 		<SEO
-			title="Children's Book For All"
-			description="An evocative space for play, wonder, joy and community"
+			title={ogTitle}
+			description={ogDescription}
 			openGraph={{
 				basic: {
-					title: "Children's Book For All",
+					title: ogTitle,
 					type: "Website",
-					image: "https://ik.imagekit.io/ty6gikkxo/logo.png?updatedAt=1737934952181",
+					image: ogImage,
 				},
 			}}
 			extend={{
@@ -34,14 +46,13 @@ import { SEO } from "astro-seo";
 				meta: [
 					{
 						name: "twitter:image",
-						content:
-							"https://ik.imagekit.io/childrensbookforall/logo.png",
+						content: ogImage,
 					},
 					{
 						name: "twitter:title",
-						content: "Children's Book For All",
+						content: ogTitle,
 					},
-					{ name: "twitter:description", content: "An evocative space for play, wonder, joy and community" },
+					{ name: "twitter:description", content: ogDescription },
 				],
 			}}
 		/>

@@ -12,7 +12,9 @@ export function shuffleArray(array: any) {
 export async function getStaticPaths({paginate}: any) {
     const members = await getCollection("communityMembers");
     members.sort((a,b)=> (a.data.order - b.data.order));
-    return paginate(members, { pageSize: 12 });
+    const [first, ...rest] = members;
+    shuffleArray(rest);
+    return paginate([first, ...rest], { pageSize: 12 });
 }
 const { page }: any = Astro.props;
 import Layout from "../../layouts/Layout.astro";
