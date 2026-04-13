@@ -10,12 +10,14 @@ interface Props {
 	ogImage?: string;
 	ogTitle?: string;
 	ogDescription?: string;
+	hideNotificationBar?: boolean;
 }
 
 const {
 	ogImage = "https://ik.imagekit.io/ty6gikkxo/logo.png?updatedAt=1737934952181",
 	ogTitle = "Children's Book For All",
 	ogDescription = "An evocative space for play, wonder, joy and community",
+	hideNotificationBar = false,
 } = Astro.props;
 ---
 
@@ -66,7 +68,7 @@ const {
 		</script>
 	</head>
 	<body>
-		<!-- <NotificationBar /> -->
+		<!-- {!hideNotificationBar && <NotificationBar />} -->
 		<Nav />
 		<slot />
 	</body>
