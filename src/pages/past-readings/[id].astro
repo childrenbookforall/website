@@ -16,9 +16,12 @@ if (!post.rendered?.html) return Astro.rewrite("/past-readings/undocumented");
 
 const { Content } = await render(post);
 
+const imgMatches = [...(post.rendered.html.matchAll(/<img[^>]+src="([^"]+)"/g))];
+const lastImage = imgMatches.at(-1)?.[1];
+
 ---
 
-<Layout>
+<Layout ogTitle={post.data.description} ogImage={lastImage}>
   <main>
     <section class="stories">
       <h1>{post.data.description}</h1>
