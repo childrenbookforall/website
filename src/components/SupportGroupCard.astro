@@ -1,5 +1,5 @@
 ---
-const { groupId, coverImage, date, time, sessionsCount, location, cost, frequency, description, tags } = Astro.props;
+const { groupId, coverImage, date, time, sessionsCount, duration, location, cost, frequency, description, tags } = Astro.props;
 
 import InfoCard from "./InfoCard.astro";
 ---
@@ -11,6 +11,7 @@ import InfoCard from "./InfoCard.astro";
             date={date}
             time={time}
             frequency={frequency}
+            duration={duration}
             sessionsCount={sessionsCount}
             location={location}
         />

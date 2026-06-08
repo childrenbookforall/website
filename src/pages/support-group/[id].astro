@@ -34,6 +34,8 @@ const {
     frequency,
     facilitators,
     sessionsCount,
+    duration,
+    range,
     tags,
     goLive,
 }: any = group[0];
@@ -119,6 +121,7 @@ if (actionError) {
                 cost={cost}
                 frequency={frequency}
                 facilitators={facilitators}
+                duration={duration}
                 sessionsCount={sessionsCount}
             />
 
@@ -126,22 +129,9 @@ if (actionError) {
                 <Content />
             </div>
             <div class="register">
-                {
-                    groupId === 3 ? (
-                        <div class="cost">
-                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+6000} </em>
-                        </div>
-                    ) : groupId === 4 ? (
-                        <div class="cost">
-                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+4000} </em>
-                        </div>
-                    ):
-                    (
-                        <div class="cost">
-                            <em>Contribution for all 12 sessions : ₹{cost} - ₹{cost+3000} </em>
-                        </div>
-                    )
-                }
+                <div class="cost">
+                    <em>Contribution for all {sessionsCount} sessions : ₹{cost} - ₹{cost+range} </em>
+                </div>
             </div>
             <div id="facilitators">
                 <h4>Facilitated By</h4>
