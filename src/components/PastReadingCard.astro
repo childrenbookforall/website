@@ -36,7 +36,7 @@ const displayFormattedDate = function (readingDate: Date) {
 ---
 <a href={url}>
     <aside class="reading-card">
-        <img src={reading.bookCover.url} alt={reading.bookCover.alt}>
+        <img src={reading.bookCover.url} alt={reading.bookCover.alt} loading="lazy">
         <DateCard 
             date={displayFormattedDate(reading.date)}
             time={reading.time}

@@ -6,7 +6,7 @@ import DateCard from "./DateCard.astro";
 
 <!-- <a id='card' href=`/readings/${readingId}` data-astro-reload> -->
     <aside>
-        <img src={bookCover} alt=`Cover page of the book ${title}` />
+        <img src={bookCover} alt=`Cover page of the book ${title}` loading="lazy" />
         <DateCard
             date={date}
             time={time}

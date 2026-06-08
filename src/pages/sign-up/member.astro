@@ -55,8 +55,12 @@ if (actionError){
       <MemberSignUp />
     </div>
   </main>
-  <UpcomingReadings/>
-  <Gallery/>
+  <UpcomingReadings server:defer>
+    <div slot="fallback"></div>
+  </UpcomingReadings>
+  <Gallery server:defer>
+    <div slot="fallback"></div>
+  </Gallery>
 </Layout>
 <script>
   const dialog = document.querySelector('dialog');

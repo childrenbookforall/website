@@ -6,7 +6,7 @@ import InfoCard from "./InfoCard.astro";
 
 <!-- <a id='card' href=`/readings/${readingId}` data-astro-reload> -->
     <aside>
-        <img src={coverImage} alt=`Cover page of the support group` />
+        <img src={coverImage} alt=`Cover page of the support group` loading="lazy" />
         <InfoCard
             date={date}
             time={time}

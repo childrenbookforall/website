@@ -4,7 +4,7 @@ const { member, url } = Astro.props;
 ---
 <a href={url}>
     <div class="member-card">
-        <img src={member.image.url} alt={member.image.alt} width="300">
+        <img src={member.image.url} alt={member.image.alt} width="100" height="100" loading="lazy">
         <div id="details-button">
             <Icon name="ic:baseline-arrow-circle-right" size={32} color="#ff8383"/>
         </div>

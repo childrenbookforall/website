@@ -39,7 +39,7 @@ const displayFormattedDate = function (activityDate: Date) {
 <a href={url}>
     <aside class="activity-card">
         <div class="activity">
-            <img src={activity.image.url} alt={activity.image.alt} />
+            <img src={activity.image.url} alt={activity.image.alt} loading="lazy" />
             <div class="activity-details">
                 <h3>{activity.title}</h3>
                 <p>{activity.description}</p>
@@ -47,7 +47,7 @@ const displayFormattedDate = function (activityDate: Date) {
         </div>
         <div class="footer">
             <div class="owner">
-                <img src={activity.owner.image} alt="profile photo">
+                <img src={activity.owner.image} alt="profile photo" loading="lazy">
                 <p>{activity.owner.name}</p>
             </div>
             <span>Last Update: {displayFormattedDate(activity.lastUpdatedDate)}</span>
