@@ -130,7 +130,10 @@ if (actionError) {
             </div>
             <div class="register">
                 <div class="cost">
-                    <em>Contribution for all {sessionsCount} sessions : ₹{cost} - ₹{cost+range} </em>
+                    {groupId==8?
+                    <em>Contribution for all {sessionsCount} sessions : Pay-What-You-Want </em>:
+                    <em>Contribution for all {sessionsCount} sessions : ₹{cost} - ₹{cost+range} </em>}
+                    
                 </div>
             </div>
             <div id="facilitators">
