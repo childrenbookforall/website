@@ -1,14 +1,12 @@
-### *Dor* | डोर : A reflective support circle for anyone experiencing loneliness and seeking to build meaningful connections
+### *Dor* | डोर : A Support Group on Loneliness and Reclaiming the Practice of Connection 
 
-## About the Circle
+## About the Group
 
-**Dor** is a reflective support circle for anyone experiencing the weight of disconnection and loneliness, those who are seeking meaningful connections with self and others, anchored in children's books by Children’s Books for All (CBA). 
+**Dor** meaning thread in Hindi is a reflective support circle. It represents the intermingled nature of our existence: the strings we extend to belong, reach out, and explore, and the shared connections that hold us to life.  
 
-Over **8 sessions across 4 months**, we will explore themes of belonging, identity, connection, change, grief, boredom, isolation, and the often-unspoken and heavy experiences of loneliness. Together, we will reflect on what it means to lose, long for, rebuild, and reconnect.   
+Perhaps at different times, we find ourselves wrestling with a quiet trio: loneliness, yearning, and the space between connection and disconnection. When isolation sets in, we might doubt our capacity to connect, wondering if we simply aren't good at being social. But what if connection isn't a fixed skill? Rather a living practice, one that we learn, lose, rediscover, and untangle across a lifetime.  
 
-The journey will be supported through different creative expressions such as art, poetry, sitting with children's picture books which speaks to the lived experiences of individuals and other reflective practices.  
-
-The circle will be facilitated by therapists **Anoushka Malviya** and **Sayali Sontakke**, who are part of the Children’s Books for All (CBA) community.
+Over **8 sessions across 4 months**, this circle will explore this possibility through poetry, art, curated children’s books, and collective witnessing. Together, we will reflect on building a "home", examine our bids for connection, and explore the threads that tie us to our communities and ancestors. The support group will be co-facilitated by therapists **Anoushka Malviya** and **Sayali Sontakke**, who are part of the CBA community.  
 
 ## The Facilitators
 
