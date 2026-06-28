@@ -2,7 +2,7 @@
 
 ## About the Group
 
-**Dor** meaning thread in Hindi is a reflective support circle. It represents the intermingled nature of our existence: the strings we extend to belong, reach out, and explore, and the shared connections that hold us to life.  
+**Dor**, meaning thread in Hindi, is a reflective support circle. It represents the intermingled nature of our existence: the strings we extend to belong, reach out, and explore, and the shared connections that hold us to life.  
 
 Perhaps at different times, we find ourselves wrestling with a quiet trio: loneliness, yearning, and the space between connection and disconnection. When isolation sets in, we might doubt our capacity to connect, wondering if we simply aren't good at being social. But what if connection isn't a fixed skill? Rather a living practice, one that we learn, lose, rediscover, and untangle across a lifetime.  
 
